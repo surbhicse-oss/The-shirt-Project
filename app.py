@@ -482,9 +482,14 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-brand-box">
         <svg class="sidebar-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M50 15 C45 15 42 19 44 24 C45.5 27.5 49 29 50 30 C51 29 54.5 27.5 56 24 C58 19 55 15 50 15 Z" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
-            <path d="M50 30 L10 50 L35 50 C40 45 42 45 50 45 C58 45 60 45 65 50 L90 50 Z" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
-            <path d="M38 52 C38 65 42 70 50 70 C58 70 62 65 62 52" stroke="#C5A059" stroke-width="2.5"/>
+            <!-- Hanger Top Hook -->
+            <path d="M 50 14 C 44 14 39 19 43 25 C 45 28 48 30 50 32" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Hanger Arms & Base -->
+            <path d="M 50 32 L 15 52 C 10 54 10 60 15 62 L 35 62 M 50 32 L 85 52 C 90 54 90 60 85 62 L 65 62" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- TSP Monogram inside Hanger -->
+            <path d="M 43 51 C 36 47 36 55 44 59 C 50 62 46 69 40 67 C 35 65 32 62 32 62" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 51 49 C 62 49 63 58 51 61 L 51 69" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+            <path d="M 44 48 L 56 48 M 50 48 L 50 69" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <div class="sidebar-title">THE SHIRT PROJECT</div>
         <div class="sidebar-tagline">Bespoke Couture House</div>
@@ -524,11 +529,15 @@ with st.sidebar:
 # ==========================================
 st.markdown("""
 <div class="brand-header-banner">
-    <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 15 C45 15 42 19 44 24 C45.5 27.5 49 29 50 30 C51 29 54.5 27.5 56 24 C58 19 55 15 50 15 Z" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
-        <path d="M50 30 L10 50 L35 50 C40 45 42 45 50 45 C58 45 60 45 65 50 L90 50 Z" stroke="#C5A059" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-        <path d="M38 52 C38 65 42 70 50 70 C58 70 62 65 62 52" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-        <path d="M44 58 L56 58" stroke="#C5A059" stroke-width="2"/>
+    <svg style="width: 140px; height: 95px; margin-bottom: 0.5rem;" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Hanger Top Hook -->
+        <path d="M 50 10 C 43 10 38 15 42 22 C 44 25 48 27 50 30" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Hanger Arms & Base -->
+        <path d="M 50 30 L 15 50 C 10 52 10 58 15 60 L 35 60 M 50 30 L 85 50 C 90 52 90 58 85 60 L 65 60" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- TSP Monogram inside Hanger -->
+        <path d="M 43 49 C 36 45 36 53 44 57 C 50 60 46 67 40 65 C 35 63 32 60 32 60" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 51 47 C 62 47 63 56 51 59 L 51 67" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+        <path d="M 44 46 L 56 46 M 50 46 L 50 67" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
     </svg>
     <h1 class="brand-title">The Shirt Project</h1>
     <div class="brand-tagline">Crafted to Measure. Tailored for Distinction.</div>
