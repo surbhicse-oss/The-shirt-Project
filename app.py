@@ -480,6 +480,20 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
+# Helper function for Sartorial Genie AI Style Assistant
+def query_sartorial_genie(prompt):
+    prompt_lower = prompt.lower()
+    if any(w in prompt_lower for w in ["summer", "linen", "hot", "breathable", "casual", "beach"]):
+        return "🌿 **Summer & Casual Luxury Recommendation:**\nFor warm weather or resort elegance, we highly recommend our **100% Pure Vintage Irish Linen** or **200s Giza Egyptian Cotton** shirts paired with **Custom Linen Drawstring Pants**."
+    elif any(w in prompt_lower for w in ["wedding", "gala", "tuxedo", "party", "formal", "suit", "groom"]):
+        return "🎩 **Gala & Wedding Recommendation:**\nFor grand evening galas or weddings, opt for our **Classic Black Tie Tuxedo** with satin peak lapels or a **Custom Raw Silk Nehru Jacket** with hand-embroidered monogramming."
+    elif any(w in prompt_lower for w in ["time", "duration", "days", "how long", "fitting", "stitch"]):
+        return "⏱️ **Bespoke Timeline & Fitting Guide:**\nOur master tailors take 2 to 3 weeks for 30-point pattern drafting, hand-cutting, and pick-stitching. Urgent gala requests can be expedited in **7-Day Express Bespoke**."
+    elif any(w in prompt_lower for w in ["contact", "jatin", "founder", "address", "location", "jammu", "phone", "number"]):
+        return "👑 **Founder Concierge Info:**\nReach **Founder & Master Couturier Mr. Jatin Gupta** directly at **+91 8717070570** or visit **264-A, Raj Tilak Road, Jammu**."
+    else:
+        return "👔 **Sartorial Genie Guidance:**\nEvery garment at *The Shirt Project* is 100% custom-crafted. Explore our **Sartorial Vault** catalog or use our **Bespoke Design Suite** live configurator to customize your collar, cuff, and contour fit!"
+
 # ==========================================
 # SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
 # ==========================================
@@ -500,6 +514,12 @@ with st.sidebar:
         <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">Founded & Created by Jatin Gupta</div>
     </div>
     """, unsafe_allow_html=True)
+
+    # Sartorial Genie Assistant Expander in Sidebar
+    with st.expander("🧞 Sartorial Genie (Quick Q&A Assistant)", expanded=False):
+        genie_input = st.text_input("Ask Genie a question:", placeholder="e.g. Best suit for summer wedding?", key="sb_genie")
+        if genie_input:
+            st.info(query_sartorial_genie(genie_input))
 
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1rem;">
@@ -610,7 +630,7 @@ with tab_atelier:
 
     # Introduction Narrative
     st.markdown("""
-    <div style="text-align: center; max-width: 880px; margin: 0 auto 3.5rem auto;">
+    <div style="text-align: center; max-width: 880px; margin: 0 auto 2.5rem auto;">
         <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20; margin-bottom: 1.2rem;">
             Where Master Craftsmanship Meets Modern Elegance
         </h2>
@@ -621,6 +641,42 @@ with tab_atelier:
         </p>
     </div>
     """, unsafe_allow_html=True)
+
+    # 🧞 Sartorial Genie Smart Q&A Assistant Section
+    st.markdown("""
+    <div class="brand-card" style="border-top: 3px solid #C5A059; background: #FFFFFF; padding: 2rem; border-radius: 12px; margin-bottom: 3rem;">
+        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+            <span style="font-size: 2rem;">🧞</span>
+            <div>
+                <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #1A1D20; margin: 0;">Sartorial Genie — Quick Q&A & Style Assistant</h3>
+                <p style="color: #666666; font-size: 0.88rem; margin: 0;">Ask any question about fabrics, outfit choices, bespoke timelines, or founder consultations.</p>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # Preset Quick Questions
+    g_col1, g_col2, g_col3, g_col4 = st.columns(4)
+    genie_query = ""
+    with g_col1:
+        if st.button("🌿 Summer Shirt Fabrics"):
+            genie_query = "Best summer shirt fabric?"
+    with g_col2:
+        if st.button("🎩 Wedding & Gala Suits"):
+            genie_query = "Best outfit for wedding gala?"
+    with g_col3:
+        if st.button("⏱️ Bespoke Stitching Time"):
+            genie_query = "How long does bespoke stitching take?"
+    with g_col4:
+        if st.button("👑 Founder Consultation"):
+            genie_query = "Contact Mr. Jatin Gupta founder address"
+
+    user_genie_input = st.text_input("Or type your custom question here:", value=genie_query, placeholder="e.g. What fabric is best for summer business formal?", key="main_genie")
+
+    if user_genie_input:
+        st.success(query_sartorial_genie(user_genie_input))
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # Brand Pillars (4 Cards)
     st.markdown("<h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2.2rem; margin-bottom: 1.8rem;'>The Four Pillars of Our Craft</h3>", unsafe_allow_html=True)
