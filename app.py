@@ -167,6 +167,25 @@ div[role="option"]:hover {
 }
 
 /* Toast Notifications - Black/Dark Slate Background & Metallic Gold Text */
+/* Streamlit Top Header Bar - Solid Pitch Black with Metallic Gold Text */
+header,
+[data-testid="stHeader"],
+.stHeader,
+div[data-testid="stHeader"] {
+    background-color: #000000 !important;
+    background: #000000 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    border-bottom: 2px solid #C5A059 !important;
+}
+
+header *,
+[data-testid="stHeader"] * {
+    color: #C5A059 !important;
+    fill: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+}
+
 [data-testid="stToast"],
 div[data-baseweb="toast"],
 .stToast,
@@ -726,7 +745,7 @@ with st.sidebar:
 # BRAND HEADER BANNER
 # ==========================================
 st.markdown("""
-<div style="background: linear-gradient(135deg, #050607 0%, #1A1D20 50%, #2A241A 100%) !important; border-radius: 16px; border: 2px solid #C5A059; padding: 2.8rem 2rem; text-align: center; box-shadow: 0 14px 40px rgba(0,0,0,0.5), 0 0 25px rgba(197, 160, 89, 0.2); margin-bottom: 2.2rem;">
+<div style="background-color: #000000 !important; background: #000000 !important; border-radius: 16px; border: 2px solid #C5A059; padding: 2.8rem 2rem; text-align: center; box-shadow: 0 14px 40px rgba(0,0,0,0.6), 0 0 25px rgba(197, 160, 89, 0.25); margin-bottom: 2.2rem;">
     <svg viewBox="0 0 300 160" width="200" height="106" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.6rem; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.35));">
         <!-- Coat Hanger Hook -->
         <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
@@ -737,7 +756,7 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3.2rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">The Shirt Project</div>
+    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3.2rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important; text-shadow: 0 2px 10px rgba(0,0,0,0.9);">The Shirt Project</div>
     <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.88rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.22em !important; text-transform: uppercase !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
     <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-style: italic !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
