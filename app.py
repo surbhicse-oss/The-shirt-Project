@@ -623,7 +623,7 @@ with tab_atelier:
         """, unsafe_allow_html=True)
         
     with col_quote_btn:
-        st.markdown("<br><br>", unsafe_allow_html=True)
+        st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
         if st.button("✨ More Inspirations"):
             st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
             st.session_state.last_quote_time = time.time()
@@ -788,7 +788,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh1"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
 
         with c2:
             render_catalog_item(
@@ -800,7 +800,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh2"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
 
         with c3:
             render_catalog_item(
@@ -812,7 +812,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh3"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
 
     # Sub-Category 2: Suiting & Tuxedos
     with cat_suiting:
@@ -827,7 +827,7 @@ with tab_catalog:
             )
             if st.button("Inquire Suiting", key="btn_suit1"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Suiting selected! Complete request in Bespoke Design Suite.", icon="🧥")
 
         with c2:
             render_catalog_item(
@@ -839,7 +839,7 @@ with tab_catalog:
             )
             if st.button("Inquire Tuxedo", key="btn_suit2"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Tuxedo selected! Complete request in Bespoke Design Suite.", icon="🧥")
 
         with c3:
             render_catalog_item(
@@ -851,7 +851,7 @@ with tab_catalog:
             )
             if st.button("Inquire Blazer", key="btn_suit3"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Blazer selected! Complete request in Bespoke Design Suite.", icon="🧥")
 
     # Sub-Category 3: Trousers & Bottoms
     with cat_trousers:
@@ -866,7 +866,7 @@ with tab_catalog:
             )
             if st.button("Inquire Trousers", key="btn_tr1"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Trousers selected! Complete request in Bespoke Design Suite.", icon="👖")
 
         with c2:
             render_catalog_item(
@@ -878,7 +878,7 @@ with tab_catalog:
             )
             if st.button("Inquire Gurkha Pants", key="btn_tr2"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Gurkha Pants selected! Complete request in Bespoke Design Suite.", icon="👖")
 
         with c3:
             render_catalog_item(
@@ -890,7 +890,7 @@ with tab_catalog:
             )
             if st.button("Inquire Linen Pants", key="btn_tr3"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Linen Pants selected! Complete request in Bespoke Design Suite.", icon="👖")
 
     # Sub-Category 4: Style Statements
     with cat_statements:
@@ -905,7 +905,7 @@ with tab_catalog:
             )
             if st.button("Inquire Nehru Jacket", key="btn_st1"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Nehru Jacket selected! Complete request in Bespoke Design Suite.", icon="✨")
 
         with c2:
             render_catalog_item(
@@ -917,7 +917,7 @@ with tab_catalog:
             )
             if st.button("Inquire Waistcoat", key="btn_st2"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Waistcoat selected! Complete request in Bespoke Design Suite.", icon="✨")
 
         with c3:
             render_catalog_item(
@@ -929,7 +929,7 @@ with tab_catalog:
             )
             if st.button("Inquire Monogramming", key="btn_st3"):
                 st.session_state.selected_categories = ["Bespoke Monogramming & Details"]
-                st.info("Added to Bespoke Design Suite request form!")
+                st.toast("✨ Monogramming selected! Complete request in Bespoke Design Suite.", icon="✨")
 
 
 # ==========================================
