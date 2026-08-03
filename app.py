@@ -850,6 +850,42 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
+# QUICK CATEGORY NAVIGATION & ATELIER CONTROL BAR
+# ==========================================
+with st.expander("✂️ Quick Category Navigation & Lookbook Filter Panel", expanded=True):
+    bar_col1, bar_col2, bar_col3 = st.columns([2, 2, 1])
+    with bar_col1:
+        top_filter_choice = st.selectbox(
+            "Filter Collection Category:",
+            ["All Collections", "Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements"],
+            key="top_collection_filter"
+        )
+        if top_filter_choice != "All Collections":
+            if st.session_state.get("last_top_choice") != top_filter_choice:
+                st.session_state.selected_categories = [top_filter_choice]
+                st.session_state.switch_to_catalog = True
+                st.session_state.last_top_choice = top_filter_choice
+                sub_map = {
+                    "Shirting": 0,
+                    "Suiting & Tuxedos": 1,
+                    "Trousers & Bottoms": 2,
+                    "Style Statements": 3
+                }
+                st.session_state.catalog_sub_index = sub_map.get(top_filter_choice, 0)
+    with bar_col2:
+        top_genie = st.text_input("🧞 Sartorial Genie Quick Assistant:", placeholder="e.g. Best suit for summer wedding?", key="top_genie_input")
+        if top_genie:
+            st.info(query_sartorial_genie(top_genie))
+    with bar_col3:
+        st.markdown(f"""
+        <div style="text-align: center; margin-top: 1.6rem;">
+            <a href="{wa_direct_quick}" target="_blank" style="display:inline-block; background:#25D366; color:white !important; -webkit-text-fill-color:white !important; padding:0.65rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.85rem; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);">
+                💬 WhatsApp
+            </a>
+        </div>
+        """, unsafe_allow_html=True)
+
+# ==========================================
 # MAIN NAVIGATION TABS & AUTOMATIC REDIRECTION
 # ==========================================
 if st.session_state.get("switch_to_catalog", False):
