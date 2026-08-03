@@ -97,23 +97,23 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 
 /* Custom Styled Sidebar with High Contrast Gold & White Rules */
 [data-testid="stSidebar"],
-[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
 [data-testid="stSidebar"] section {
     background-color: #1A1D20 !important;
     background: #1A1D20 !important;
     border-right: 2px solid #C5A059 !important;
 }
 
-[data-testid="stSidebar"] *,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
-[data-testid="stSidebar"] .stMarkdown *,
-[data-testid="stSidebar"] summary *,
-[data-testid="stSidebar"] details *,
-[data-testid="stSidebar"] label *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
-[data-testid="stSidebar"] div {
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] a,
+[data-testid="stSidebar"] li,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] summary,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] * {
     color: #FFFFFF !important;
+    fill: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
     opacity: 1 !important;
     visibility: visible !important;
@@ -124,20 +124,12 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 [data-testid="stSidebar"] h3, 
 [data-testid="stSidebar"] h4,
 [data-testid="stSidebar"] h5,
-[data-testid="stSidebar"] summary span,
-[data-testid="stSidebar"] summary div,
-[data-testid="stSidebar"] summary,
-[data-testid="stSidebar"] label p,
-[data-testid="stSidebar"] label span,
-[data-testid="stSidebar"] label,
-[data-testid="stSidebar"] .stSelectbox label p,
-[data-testid="stSidebar"] .stSelectbox label span,
 [data-testid="stSidebar"] .gold-text {
     color: #C5A059 !important;
+    fill: #C5A059 !important;
     -webkit-text-fill-color: #C5A059 !important;
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 700 !important;
-    font-size: 1.15rem !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
