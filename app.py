@@ -498,10 +498,10 @@ def query_sartorial_genie(prompt):
 # SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
 # ==========================================
 with st.sidebar:
-    st.image("assets/logo_official.png", use_container_width=True)
+    st.image("assets/brand_logo.png", use_container_width=True)
     st.markdown("""
-    <div style="text-align: center; margin-top: -10px; margin-bottom: 1.5rem;">
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="text-align: center; margin-top: -5px; margin-bottom: 1.5rem;">
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -548,34 +548,14 @@ with st.sidebar:
 # ==========================================
 # BRAND HEADER BANNER
 # ==========================================
+col_h1, col_h2, col_h3 = st.columns([1.2, 1.8, 1.2])
+with col_h2:
+    st.image("assets/brand_logo.png", use_container_width=True)
+
 st.markdown("""
-<div class="brand-header-banner">
-    <div style="text-align: center;">
-        <svg viewBox="0 0 400 360" width="260" height="234" xmlns="http://www.w3.org/2000/svg" style="border-radius: 16px; border: 2px solid #C5A059; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 1rem;">
-            <!-- Warm Sand/Greige Background Card -->
-            <rect width="400" height="360" rx="16" fill="#D4CCC2"/>
-
-            <!-- Hanger Hook (Circle loop at top) -->
-            <path d="M 200 80 C 170 80 155 110 180 135 C 190 148 198 158 200 170" fill="none" stroke="#3C3D3E" stroke-width="9" stroke-linecap="round"/>
-
-            <!-- Left Shoulder Slant -->
-            <path d="M 190 180 L 105 220 C 88 228 88 248 105 254 L 165 254" fill="none" stroke="#3C3D3E" stroke-width="9" stroke-linecap="round"/>
-
-            <!-- Right Shoulder Slant (with gap at top hook) -->
-            <path d="M 220 192 L 305 232 C 322 240 322 260 305 266 L 245 266" fill="none" stroke="#3C3D3E" stroke-width="9" stroke-linecap="round"/>
-
-            <!-- Monogram 'S' (Left curve looping below bottom bar) -->
-            <path d="M 180 230 C 160 215 160 242 195 254 C 220 262 205 292 170 285 C 150 280 142 265 142 265" fill="none" stroke="#3C3D3E" stroke-width="8.5" stroke-linecap="round"/>
-
-            <!-- Monogram 'P' (Right loop & stem extending down) -->
-            <path d="M 205 230 C 248 230 252 262 205 272 L 205 298" fill="none" stroke="#3C3D3E" stroke-width="8.5" stroke-linecap="round"/>
-
-            <!-- Off-White Brand Title -->
-            <text x="200" y="325" font-family="'Montserrat', 'Lato', sans-serif" font-size="34" font-weight="400" fill="#F5F2EC" text-anchor="middle" letter-spacing="1.5">The Shirt Project</text>
-        </svg>
-    </div>
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: #C5A059; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 0.4rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div class="brand-tagline" style="margin-top: 0.5rem;">Crafted to Measure. Tailored for Distinction.</div>
+<div style="text-align: center; margin-top: 0.4rem; margin-bottom: 2rem;">
+    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 700; color: #C5A059; letter-spacing: 0.22em; text-transform: uppercase;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div class="brand-tagline" style="margin-top: 0.4rem; font-size: 1.45rem;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
