@@ -281,41 +281,48 @@ div[data-baseweb="toast"],
 }
 
 .pillar-card {
-    background: linear-gradient(145deg, #1A1D20 0%, #24282D 100%);
-    color: #EAE6DF;
+    background: linear-gradient(145deg, #1A1D20 0%, #24282D 100%) !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     padding: 2.2rem 1.4rem;
     border-radius: 12px;
     text-align: center;
-    border: 1px solid #C5A059;
+    border: 1.5px solid #C5A059;
     height: 100%;
     transition: all 0.35s ease;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 .pillar-card:hover {
-    border-color: #FFFFFF;
+    border-color: #C5A059;
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(197, 160, 89, 0.25);
+    box-shadow: 0 12px 30px rgba(197, 160, 89, 0.35);
+}
+
+.pillar-card *,
+.pillar-icon,
+.pillar-title,
+.pillar-desc {
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    opacity: 1 !important;
 }
 
 .pillar-icon {
     font-size: 2.5rem;
-    color: #C5A059;
     margin-bottom: 1rem;
 }
 
 .pillar-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.55rem;
-    color: #FFFFFF;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     margin-bottom: 0.6rem;
 }
 
 .pillar-desc {
     font-size: 0.9rem;
-    color: #B5BAC0;
     line-height: 1.6;
 }
 
@@ -357,8 +364,8 @@ div[data-baseweb="toast"],
 .quote-banner .quote-author {
     font-family: 'Montserrat', sans-serif !important;
     font-size: 0.95rem !important;
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     letter-spacing: 0.25em !important;
     text-transform: uppercase !important;
     font-weight: 700 !important;
@@ -433,14 +440,19 @@ div[data-baseweb="toast"],
     margin-bottom: 1.2rem;
 }
 
-/* Custom Buttons Styling */
-.stButton > button {
+/* Custom Buttons Styling - All Dark Buttons Force Gold Text */
+.stButton > button,
+.stButton > button *,
+.stButton > button p,
+.stButton > button span,
+.stButton > button div {
     background-color: #1A1D20 !important;
     color: #C5A059 !important;
-    border: 1px solid #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    border: 1.5px solid #C5A059 !important;
     font-family: 'Montserrat', sans-serif !important;
     font-size: 0.85rem !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     letter-spacing: 0.15em !important;
     text-transform: uppercase !important;
     padding: 0.7rem 1.4rem !important;
@@ -449,19 +461,35 @@ div[data-baseweb="toast"],
     width: 100%;
 }
 
-.stButton > button:hover {
+.stButton > button:hover,
+.stButton > button:hover * {
     background-color: #C5A059 !important;
     color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
     border-color: #C5A059 !important;
     box-shadow: 0 5px 20px rgba(197, 160, 89, 0.45) !important;
     transform: translateY(-2px);
+}
+
+/* Expanders Styling */
+.stExpander,
+[data-testid="stExpander"],
+[data-testid="stExpander"] details,
+[data-testid="stExpander"] summary,
+[data-testid="stExpander"] summary *,
+[data-testid="stExpander"] p,
+[data-testid="stExpander"] span {
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
 }
 
 /* Form Controls Styling */
 .stTextInput > div > div > input, 
 .stTextArea > div > div > textarea, 
 .stSelectbox > div > div {
-    border: 1px solid #C5A059 !important;
+    border: 1.5px solid #C5A059 !important;
     background-color: #FFFFFF !important;
     color: #1A1D20 !important;
     border-radius: 5px !important;
@@ -502,12 +530,14 @@ div[data-baseweb="toast"],
 }
 
 /* Configurator Preview Box */
-.configurator-preview {
-    background: linear-gradient(145deg, #1A1D20 0%, #292D33 100%);
+.configurator-preview,
+.configurator-preview * {
+    background: linear-gradient(145deg, #1A1D20 0%, #292D33 100%) !important;
     border: 1px solid #C5A059;
     border-radius: 10px;
     padding: 1.5rem;
-    color: #EAE6DF;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     text-align: center;
     margin-bottom: 1.5rem;
 }
