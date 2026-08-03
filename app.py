@@ -498,10 +498,20 @@ def query_sartorial_genie(prompt):
 # SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
 # ==========================================
 with st.sidebar:
-    st.image("assets/brand_logo.png", use_container_width=True)
     st.markdown("""
-    <div style="text-align: center; margin-top: -5px; margin-bottom: 1.5rem;">
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="background: #1A1D20; border-radius: 12px; padding: 1.4rem 1rem; margin-bottom: 1.5rem; border: 1.5px solid #C5A059; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">
+        <svg viewBox="0 0 300 160" width="150" height="80" xmlns="http://www.w3.org/2000/svg">
+            <!-- Coat Hanger Hook -->
+            <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
+            <!-- Outer Hanger -->
+            <path d="M 150 80 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 80 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Monogram SP -->
+            <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF !important; letter-spacing: 0.12em; margin-top: 0.3rem;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -537,14 +547,21 @@ with st.sidebar:
 # ==========================================
 # BRAND HEADER BANNER
 # ==========================================
-col_h1, col_h2, col_h3 = st.columns([1.2, 1.8, 1.2])
-with col_h2:
-    st.image("assets/brand_logo.png", use_container_width=True)
-
 st.markdown("""
-<div style="text-align: center; margin-top: 0.4rem; margin-bottom: 2rem;">
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 700; color: #C5A059; letter-spacing: 0.22em; text-transform: uppercase;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div class="brand-tagline" style="margin-top: 0.4rem; font-size: 1.45rem;">Crafted to Measure. Tailored for Distinction.</div>
+<div style="background: #1A1D20; border-radius: 14px; border: 2px solid #C5A059; padding: 2.8rem 2rem; text-align: center; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 2rem;">
+    <svg viewBox="0 0 300 160" width="210" height="112" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.5rem;">
+        <!-- Coat Hanger Hook -->
+        <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
+        <!-- Outer Hanger -->
+        <path d="M 150 80 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 80 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- Monogram SP -->
+        <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1; margin-top: 0.4rem;">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; color: #C5A059; letter-spacing: 0.24em; text-transform: uppercase; margin-top: 0.7rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: #EAE6DF; letter-spacing: 0.12em; margin-top: 0.6rem;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
