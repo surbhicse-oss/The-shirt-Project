@@ -686,8 +686,8 @@ with st.sidebar:
 # BRAND HEADER BANNER
 # ==========================================
 st.markdown("""
-<div style="background: #1A1D20; border-radius: 14px; border: 2px solid #C5A059; padding: 2.8rem 2rem; text-align: center; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 2rem;">
-    <svg viewBox="0 0 300 160" width="210" height="112" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.5rem;">
+<div style="background-color: #1A1D20 !important; background: #1A1D20 !important; border-radius: 14px; border: 2px solid #C5A059; padding: 2.5rem 1.5rem; text-align: center; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 2rem;">
+    <svg viewBox="0 0 300 160" width="180" height="96" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
         <!-- Coat Hanger Hook -->
         <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
         <!-- Outer Hanger -->
@@ -697,9 +697,9 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; display: block; visibility: visible; opacity: 1;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.7rem, 2vw, 0.88rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; display: block; visibility: visible; opacity: 1;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.8vw, 1.4rem); font-style: italic; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em; margin-top: 0.6rem; display: block; visibility: visible; opacity: 1;">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.85rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; margin-top: 0.5rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-style: italic !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em !important; margin-top: 0.5rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -730,7 +730,7 @@ tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
 # SECTION 1: THE GRAND ATELIER (HOME PAGE)
 # ==========================================
 with tab_atelier:
-    # Rotating Style Quotes System with Timed Auto-Flip
+    # Rotating Style Quotes System with Timed Auto-Flip (Every 4 Seconds)
     if 'last_quote_time' not in st.session_state:
         st.session_state.last_quote_time = time.time()
 
@@ -742,29 +742,19 @@ with tab_atelier:
         {"quote": "Fashion fades, only style remains the same.", "author": "Coco Chanel"}
     ]
 
-    # Auto-flip quote every 6 seconds
-    if time.time() - st.session_state.last_quote_time > 6:
+    # Auto-flip quote every 4 seconds
+    if time.time() - st.session_state.last_quote_time > 4:
         st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
         st.session_state.last_quote_time = time.time()
 
-    col_quote_content, col_quote_btn = st.columns([5, 1.2])
-    
-    with col_quote_content:
-        current = quotes[st.session_state.current_quote_idx]
-        st.markdown(f"""
-        <div class="quote-banner">
-            <span class="quote-symbol">“</span>
-            <div class="quote-content">{current['quote']}</div>
-            <div class="quote-author">— {current['author']}</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-    with col_quote_btn:
-        st.markdown("<div style='margin-top: 1.5rem;'></div>", unsafe_allow_html=True)
-        if st.button("✨ More Inspirations"):
-            st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
-            st.session_state.last_quote_time = time.time()
-            st.rerun()
+    current = quotes[st.session_state.current_quote_idx]
+    st.markdown(f"""
+    <div class="quote-banner">
+        <span class="quote-symbol">“</span>
+        <div class="quote-content">{current['quote']}</div>
+        <div class="quote-author">— {current['author']}</div>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Introduction Narrative
     st.markdown("""
