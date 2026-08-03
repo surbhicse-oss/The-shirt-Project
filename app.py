@@ -188,29 +188,43 @@ div[data-baseweb="toast"],
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
 [data-testid="stSidebar"] section {
+    --text-color: #C5A059 !important;
+    --primary-color: #C5A059 !important;
     background-color: #1A1D20 !important;
     background: #1A1D20 !important;
     border-right: 2px solid #C5A059 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
 }
 
 [data-testid="stSidebar"] *,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
-[data-testid="stSidebar"] [data-testid="stExpander"] *,
-[data-testid="stSidebar"] [data-testid="stExpander"] summary *,
-[data-testid="stSidebar"] details summary,
-[data-testid="stSidebar"] details summary *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] a,
 [data-testid="stSidebar"] li,
 [data-testid="stSidebar"] label,
+[data-testid="stSidebar"] label p,
+[data-testid="stSidebar"] label span,
 [data-testid="stSidebar"] strong,
+[data-testid="stSidebar"] summary,
+[data-testid="stSidebar"] summary *,
+[data-testid="stSidebar"] summary span,
+[data-testid="stSidebar"] summary div,
+[data-testid="stSidebar"] details,
+[data-testid="stSidebar"] details *,
+[data-testid="stSidebar"] [data-testid="stExpander"],
+[data-testid="stSidebar"] [data-testid="stExpander"] *,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] .stMarkdown *,
 [data-testid="stSidebar"] h1,
 [data-testid="stSidebar"] h2,
 [data-testid="stSidebar"] h3,
 [data-testid="stSidebar"] h4,
-[data-testid="stSidebar"] h5 {
+[data-testid="stSidebar"] h5,
+[data-testid="stSidebar"] h6 {
     color: #C5A059 !important;
     fill: #C5A059 !important;
     -webkit-text-fill-color: #C5A059 !important;
@@ -218,9 +232,12 @@ div[data-baseweb="toast"],
     visibility: visible !important;
 }
 
-[data-testid="stSidebar"] .white-text {
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
+[data-testid="stSidebar"] [data-baseweb="select"] *,
+[data-testid="stSidebar"] [data-baseweb="select"] div,
+[data-testid="stSidebar"] [data-baseweb="select"] span {
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    background-color: #1A1D20 !important;
 }
 
 /* Main Navigation Tabs - Dark Emerald & Gold */
