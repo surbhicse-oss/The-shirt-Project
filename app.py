@@ -490,7 +490,7 @@ def query_sartorial_genie(prompt):
     elif any(w in prompt_lower for w in ["time", "duration", "days", "how long", "fitting", "stitch"]):
         return "⏱️ **Bespoke Timeline & Fitting Guide:**\nOur master tailors take 2 to 3 weeks for 30-point pattern drafting, hand-cutting, and pick-stitching. Urgent gala requests can be expedited in **7-Day Express Bespoke**."
     elif any(w in prompt_lower for w in ["contact", "jatin", "founder", "address", "location", "jammu", "phone", "number"]):
-        return "👑 **Founder Concierge Info:**\nReach **Founder & Master Couturier Mr. Jatin Gupta** directly at **+91 8717070570** or visit **264-A, Raj Tilak Road, Jammu**."
+        return "👑 **Founder Concierge Info:**\nReach **Founder Mr. Jatin Gupta** directly at **+91 8717070570** or visit **264-A, Raj Tilak Road, Jammu**."
     else:
         return "👔 **Sartorial Genie Guidance:**\nEvery garment at *The Shirt Project* is 100% custom-crafted. Explore our **Sartorial Vault** catalog or use our **Bespoke Design Suite** live configurator to customize your collar, cuff, and contour fit!"
 
@@ -526,7 +526,7 @@ with st.sidebar:
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.5rem;">👑 Founder Atelier</div>
         <div style="font-size: 0.92rem; color: #FFFFFF !important; line-height: 1.6;">
             <strong>Mr. Jatin Gupta</strong><br>
-            <span style="color: #C5A059 !important; font-style: italic;">Founder & Master Couturier</span><br>
+            <span style="color: #C5A059 !important; font-style: italic;">Founder</span><br>
             📍 264-A, Raj Tilak Road, Jammu<br>
             📞 +91 8717070570
         </div>
@@ -1036,7 +1036,7 @@ with tab_studio:
             <div style="color: #C5A059; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Direct Founder Concierge</div>
             <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFFFFF;">What Happens Next?</h4>
             <ol style="color: #D0D4D9; font-size: 0.9rem; line-height: 1.8; padding-left: 1.2rem;">
-                <li><strong>Founder Review:</strong> Founder & Master Couturier Mr. Jatin Gupta personally reviews your fabric & fit preferences.</li>
+                <li><strong>Founder Review:</strong> Founder Mr. Jatin Gupta personally reviews your fabric & fit preferences.</li>
                 <li><strong>WhatsApp Swatches:</strong> Direct high-resolution digital fabric swatches & price estimates sent straight to your WhatsApp.</li>
                 <li><strong>Private Atelier Fitting:</strong> Visit our Jammu Heritage Atelier or schedule a private consultation.</li>
             </ol>
@@ -1121,7 +1121,7 @@ with tab_contact:
             </h3>
             <p style="font-size: 0.95rem; line-height: 1.85; color: #444444;">
                 <strong>The Shirt Project Atelier</strong><br>
-                👑 <strong>Founder & Master Couturier:</strong> Mr. Jatin Gupta<br>
+                👑 <strong>Founder:</strong> Mr. Jatin Gupta<br>
                 📍 <strong>Address:</strong> 264-A, Raj Tilak Road, Jammu<br><br>
                 🕒 <strong>Atelier Hours:</strong><br>
                 Monday – Saturday: 10:00 AM – 8:00 PM<br>
@@ -1140,7 +1140,7 @@ with tab_contact:
         app_name = st.text_input("Your Full Name", placeholder="e.g. Marcus Vance")
         app_date = st.date_input("Preferred Date", value=datetime.today())
         app_time = st.selectbox("Preferred Time Slot", ["10:30 AM", "12:00 PM", "02:30 PM", "04:30 PM", "06:30 PM"])
-        app_tailor = st.selectbox("Preferred Master Stylist / Fitter", ["Mr. Jatin Gupta (Founder & Master Couturier)", "Senior Bespoke Stylist", "Master Fitter & Cutter"])
+        app_tailor = st.selectbox("Preferred Master Stylist / Fitter", ["Mr. Jatin Gupta (Founder)", "Senior Bespoke Stylist", "Master Fitter & Cutter"])
 
         if st.button("📅 Confirm Fitting Reservation"):
             if app_name:
