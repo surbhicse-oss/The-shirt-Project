@@ -193,13 +193,14 @@ div[data-baseweb="toast"],
     border-right: 2px solid #C5A059 !important;
 }
 
+[data-testid="stSidebar"] *,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] a,
 [data-testid="stSidebar"] li,
-[data-testid="stSidebar"] label,
-[data-testid="stSidebar"] summary {
+[data-testid="stSidebar"] label {
     color: #FFFFFF !important;
     fill: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
@@ -212,6 +213,10 @@ div[data-baseweb="toast"],
 [data-testid="stSidebar"] h3, 
 [data-testid="stSidebar"] h4,
 [data-testid="stSidebar"] h5,
+[data-testid="stSidebar"] summary,
+[data-testid="stSidebar"] summary *,
+[data-testid="stSidebar"] label p,
+[data-testid="stSidebar"] label span,
 [data-testid="stSidebar"] .gold-text {
     color: #C5A059 !important;
     fill: #C5A059 !important;
@@ -320,42 +325,48 @@ div[data-baseweb="toast"],
 
 /* Fashion Quote Banner */
 .quote-banner {
-    background: linear-gradient(135deg, #1A1D20 0%, #2B3037 100%);
-    border: 1px solid #C5A059;
+    background: linear-gradient(135deg, #1A1D20 0%, #2B3037 100%) !important;
+    border: 1.5px solid #C5A059 !important;
     padding: 2.5rem 2.2rem;
     border-radius: 14px;
     text-align: center;
-    color: #EAE6DF;
     margin: 1rem 0 2.5rem 0;
     position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35) !important;
 }
 
 .quote-symbol {
     font-family: 'Cormorant Garamond', serif;
     font-size: 3.5rem;
-    color: #C5A059;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     line-height: 0;
     display: block;
     margin-bottom: 1.2rem;
 }
 
-.quote-content {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.85rem;
-    font-style: italic;
-    color: #FFFFFF;
-    margin-bottom: 0.9rem;
-    line-height: 1.38;
+.quote-content,
+.quote-banner .quote-content {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.85rem !important;
+    font-style: italic !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    margin-bottom: 0.9rem !important;
+    line-height: 1.38 !important;
+    opacity: 1 !important;
 }
 
-.quote-author {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    color: #C5A059;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    font-weight: 600;
+.quote-author,
+.quote-banner .quote-author {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 0.95rem !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    letter-spacing: 0.25em !important;
+    text-transform: uppercase !important;
+    font-weight: 700 !important;
+    opacity: 1 !important;
 }
 
 /* Product Card Styling */
@@ -625,9 +636,9 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5.5vw, 3.4rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; overflow-wrap: break-word; word-wrap: break-word;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.6rem, 2vw, 0.82rem); font-weight: 700; color: #C5A059; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; overflow-wrap: break-word; word-wrap: break-word;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2.8vw, 1.35rem); font-style: italic; color: #EAE6DF; letter-spacing: 0.08em; margin-top: 0.6rem; overflow-wrap: break-word; word-wrap: break-word;">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; overflow-wrap: break-word; word-wrap: break-word;">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.7rem, 2vw, 0.88rem); font-weight: 700; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; overflow-wrap: break-word; word-wrap: break-word;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.8vw, 1.4rem); font-style: italic; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em; margin-top: 0.6rem; overflow-wrap: break-word; word-wrap: break-word;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
