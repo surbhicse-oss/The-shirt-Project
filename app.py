@@ -422,7 +422,11 @@ tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
 # SECTION 1: THE ATELIER (HOME PAGE)
 # ==========================================
 with tab_atelier:
-    # Rotating Style Quotes System
+    # Rotating Style Quotes System with Timed Auto-Flip
+    import time
+    if 'last_quote_time' not in st.session_state:
+        st.session_state.last_quote_time = time.time()
+
     quotes = [
         {"quote": "Style is a way to say who you are without having to speak.", "author": "Rachel Zoe"},
         {"quote": "Elegance is not standing out, but being remembered.", "author": "Giorgio Armani"},
@@ -430,6 +434,11 @@ with tab_atelier:
         {"quote": "Dressing well is a form of good manners.", "author": "Tom Ford"},
         {"quote": "Fashion fades, only style remains the same.", "author": "Coco Chanel"}
     ]
+
+    # Auto-flip quote every 6 seconds
+    if time.time() - st.session_state.last_quote_time > 6:
+        st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
+        st.session_state.last_quote_time = time.time()
 
     col_quote_content, col_quote_btn = st.columns([5, 1])
     
@@ -445,8 +454,9 @@ with tab_atelier:
         
     with col_quote_btn:
         st.markdown("<br><br>", unsafe_allow_html=True)
-        if st.button("✨ Next Quote"):
+        if st.button("✨ More Inspirations"):
             st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
+            st.session_state.last_quote_time = time.time()
             st.rerun()
 
     # Introduction Narrative
