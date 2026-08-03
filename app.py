@@ -197,36 +197,45 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     margin-top: 0.6rem;
 }
 
-/* Luxury Tabs Navigation */
+/* Deep Slate & Metallic Gold Luxury Tabs Navigation */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 1.2rem;
+    gap: 1rem;
     justify-content: center;
-    background-color: #EAE6DF;
-    padding: 0.7rem 1rem;
-    border-radius: 10px;
-    border: 1px solid #D4CEBF;
+    background-color: #1A1D20 !important;
+    padding: 0.8rem 1.2rem;
+    border-radius: 12px;
+    border: 1.5px solid #C5A059;
     margin-bottom: 2.2rem;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .stTabs [data-baseweb="tab"] {
-    height: 3.4rem;
+    height: 3.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.35rem;
     font-weight: 600;
     letter-spacing: 0.08em;
-    color: #1A1D20;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
     background-color: transparent;
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 0 1.8rem;
-    transition: all 0.35 ease;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background-color: rgba(197, 160, 89, 0.15) !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
 }
 
 .stTabs [aria-selected="true"] {
-    background-color: #1A1D20 !important;
-    color: #C5A059 !important;
-    box-shadow: 0 6px 18px rgba(26, 29, 32, 0.2) !important;
-    border-bottom: 2px solid #C5A059 !important;
+    background-color: #C5A059 !important;
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 6px 22px rgba(197, 160, 89, 0.45) !important;
+    border: 1px solid #FFFFFF !important;
 }
 
 /* Cards & Elevated Glass Elements */
