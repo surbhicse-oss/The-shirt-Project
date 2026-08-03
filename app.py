@@ -412,10 +412,10 @@ st.markdown("""
 # MAIN NAVIGATION TABS
 # ==========================================
 tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
-    "🏛️ The Atelier",
-    "👔 Interactive Catalog",
-    "✂️ Bespoke Studio",
-    "📍 Contact & Concierge"
+    "🏛️ The Grand Atelier",
+    "✨ The Sartorial Vault",
+    "✂️ Bespoke Design Suite",
+    "📍 VIP Concierge & Founder"
 ])
 
 # ==========================================
@@ -779,16 +779,17 @@ with tab_studio:
     with info_col:
         st.markdown("""
         <div class="pillar-card" style="text-align: left; padding: 2rem;">
-            <div style="color: #C5A059; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Direct Tailor Concierge</div>
+            <div style="color: #C5A059; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Direct Founder Concierge</div>
             <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFFFFF;">What Happens Next?</h4>
             <ol style="color: #D0D4D9; font-size: 0.9rem; line-height: 1.8; padding-left: 1.2rem;">
-                <li><strong>Instant Review:</strong> Our master tailor inspects your fabric choice & sizing notes.</li>
-                <li><strong>WhatsApp Consultation:</strong> We send direct digital swatches and estimate quotes directly to your WhatsApp.</li>
-                <li><strong>Private Fitting:</strong> Visit our atelier or request a home-visit measurement session.</li>
+                <li><strong>Founder Review:</strong> Founder & Master Couturier Mr. Jatin Gupta personally reviews your fabric & fit preferences.</li>
+                <li><strong>WhatsApp Swatches:</strong> Direct high-resolution digital fabric swatches & price estimates sent straight to your WhatsApp.</li>
+                <li><strong>Private Atelier Fitting:</strong> Visit our Jammu Heritage Atelier or schedule a private consultation.</li>
             </ol>
             <div style="border-top: 1px dashed #C5A059; margin-top: 1.5rem; padding-top: 1rem; color: #C5A059; font-size: 0.85rem;">
-                ⚡ <strong>Business WhatsApp:</strong> +1 (800) 555-SHIRT<br>
-                ✉️ <strong>Direct Line:</strong> concierge@theshirtproject.com
+                👑 <strong>Founder:</strong> Mr. Jatin Gupta<br>
+                ⚡ <strong>Direct WhatsApp:</strong> +91 8717070570<br>
+                ✉️ <strong>VIP Booking:</strong> concierge@theshirtproject.com
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -814,8 +815,8 @@ with tab_studio:
 ---------------------------------------
 Sent via The Shirt Project Web Studio
 """
-            # Encode for WhatsApp URL (using standard business number placeholder +18005557447)
-            business_wa_number = "18005557447"
+            # Encode for WhatsApp URL (using Founder Mr. Jatin Gupta's WhatsApp number +91 8717070570)
+            business_wa_number = "918717070570"
             encoded_text = urllib.parse.quote(wa_text)
             wa_link = f"https://wa.me/{business_wa_number}?text={encoded_text}"
 
@@ -844,8 +845,8 @@ Sent via The Shirt Project Web Studio
 with tab_contact:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20;">Atelier Location & VIP Concierge</h2>
-        <p style="color: #666666; font-size: 0.95rem;">Book a private fitting appointment or reach our master concierge team directly.</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20;">The Royal Atelier & VIP Concierge</h2>
+        <p style="color: #666666; font-size: 0.95rem;">Book a private fitting appointment or reach Founder Mr. Jatin Gupta directly.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -855,17 +856,17 @@ with tab_contact:
         st.markdown("""
         <div class="brand-card">
             <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #1A1D20; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem;">
-                Flagship Atelier
+                The Royal Jammu Atelier
             </h3>
             <p style="font-size: 0.95rem; line-height: 1.8; color: #444444;">
                 <strong>The Shirt Project Atelier</strong><br>
-                📍 12 Savile Row, Mayfair Suite 4B<br>
-                London, W1S 3F4, United Kingdom<br><br>
-                🕒 <strong>Opening Hours:</strong><br>
+                👑 <strong>Founder & Master Couturier:</strong> Mr. Jatin Gupta<br>
+                📍 <strong>Address:</strong> 264-A, Raj Tilak Road, Jammu<br><br>
+                🕒 <strong>Atelier Hours:</strong><br>
                 Monday – Saturday: 10:00 AM – 8:00 PM<br>
                 Sunday: By Private VIP Appointment Only<br><br>
-                📞 <strong>Direct Line:</strong> +44 20 7946 0912<br>
-                💬 <strong>WhatsApp Concierge:</strong> +1 (800) 555-SHIRT<br>
+                📞 <strong>Direct Contact No:</strong> +91 8717070570<br>
+                💬 <strong>WhatsApp Concierge:</strong> +91 8717070570<br>
                 ✉️ <strong>VIP Booking:</strong> concierge@theshirtproject.com
             </p>
         </div>
@@ -878,7 +879,7 @@ with tab_contact:
         app_name = st.text_input("Your Full Name", placeholder="e.g. Marcus Vance")
         app_date = st.date_input("Preferred Date", value=datetime.today())
         app_time = st.selectbox("Preferred Time Slot", ["10:30 AM", "12:00 PM", "02:30 PM", "04:30 PM", "06:30 PM"])
-        app_tailor = st.selectbox("Preferred Master Stylist / Tailor", ["Senior Master Tailor Jean-Paul", "Bespoke Stylist Eleanor Vance", "Head Cutter Antonio Rossi"])
+        app_tailor = st.selectbox("Preferred Master Stylist / Fitter", ["Mr. Jatin Gupta (Founder & Master Couturier)", "Senior Bespoke Stylist", "Master Fitter & Cutter"])
 
         if st.button("📅 Confirm Fitting Reservation"):
             if app_name:
