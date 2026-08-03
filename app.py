@@ -165,11 +165,22 @@ div[role="option"]:hover {
     -webkit-text-fill-color: #1A1D20 !important;
 }
 
-li[role="option"]:hover *,
-li[role="option"][aria-selected="true"] * {
-    color: #1A1D20 !important;
-    -webkit-text-fill-color: #1A1D20 !important;
-    font-weight: 800 !important;
+/* Toast Notifications - Black/Dark Slate Background & Metallic Gold Text */
+[data-testid="stToast"],
+div[data-baseweb="toast"],
+.stToast,
+[data-baseweb="toast"] > div,
+[data-baseweb="toast"] * {
+    background-color: #1A1D20 !important;
+    background: #1A1D20 !important;
+    border: 1.5px solid #C5A059 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+    border-radius: 10px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
 }
 
 /* Custom Styled Sidebar with High Contrast Rules */
@@ -620,8 +631,21 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# MAIN NAVIGATION TABS
+# MAIN NAVIGATION TABS & AUTOMATIC REDIRECTION
 # ==========================================
+if st.session_state.get("switch_to_studio", False):
+    st.components.v1.html("""
+    <script>
+    setTimeout(function() {
+        const mainTabs = window.parent.document.querySelectorAll('div.stTabs button[data-baseweb="tab"]');
+        if (mainTabs && mainTabs.length >= 3) {
+            mainTabs[2].click();
+        }
+    }, 100);
+    </script>
+    """, height=0)
+    st.session_state.switch_to_studio = False
+
 tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
     "🏛️ The Grand Atelier",
     "✨ The Sartorial Vault",
@@ -828,7 +852,9 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh1"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c2:
             render_catalog_item(
@@ -840,7 +866,9 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh2"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c3:
             render_catalog_item(
@@ -852,7 +880,9 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh3"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.toast("✨ Shirting selected! Complete request in Bespoke Design Suite.", icon="👔")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
     # Sub-Category 2: Suiting & Tuxedos
     with cat_suiting:
@@ -867,7 +897,9 @@ with tab_catalog:
             )
             if st.button("Inquire Suiting", key="btn_suit1"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.toast("✨ Suiting selected! Complete request in Bespoke Design Suite.", icon="🧥")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c2:
             render_catalog_item(
@@ -879,7 +911,9 @@ with tab_catalog:
             )
             if st.button("Inquire Tuxedo", key="btn_suit2"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.toast("✨ Tuxedo selected! Complete request in Bespoke Design Suite.", icon="🧥")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c3:
             render_catalog_item(
@@ -891,7 +925,9 @@ with tab_catalog:
             )
             if st.button("Inquire Blazer", key="btn_suit3"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.toast("✨ Blazer selected! Complete request in Bespoke Design Suite.", icon="🧥")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
     # Sub-Category 3: Trousers & Bottoms
     with cat_trousers:
@@ -906,7 +942,9 @@ with tab_catalog:
             )
             if st.button("Inquire Trousers", key="btn_tr1"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.toast("✨ Trousers selected! Complete request in Bespoke Design Suite.", icon="👖")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c2:
             render_catalog_item(
@@ -918,7 +956,9 @@ with tab_catalog:
             )
             if st.button("Inquire Gurkha Pants", key="btn_tr2"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.toast("✨ Gurkha Pants selected! Complete request in Bespoke Design Suite.", icon="👖")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c3:
             render_catalog_item(
@@ -930,7 +970,9 @@ with tab_catalog:
             )
             if st.button("Inquire Linen Pants", key="btn_tr3"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.toast("✨ Linen Pants selected! Complete request in Bespoke Design Suite.", icon="👖")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
     # Sub-Category 4: Style Statements
     with cat_statements:
@@ -945,7 +987,9 @@ with tab_catalog:
             )
             if st.button("Inquire Nehru Jacket", key="btn_st1"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.toast("✨ Nehru Jacket selected! Complete request in Bespoke Design Suite.", icon="✨")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c2:
             render_catalog_item(
@@ -957,7 +1001,9 @@ with tab_catalog:
             )
             if st.button("Inquire Waistcoat", key="btn_st2"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.toast("✨ Waistcoat selected! Complete request in Bespoke Design Suite.", icon="✨")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
         with c3:
             render_catalog_item(
@@ -969,7 +1015,9 @@ with tab_catalog:
             )
             if st.button("Inquire Monogramming", key="btn_st3"):
                 st.session_state.selected_categories = ["Bespoke Monogramming & Details"]
-                st.toast("✨ Monogramming selected! Complete request in Bespoke Design Suite.", icon="✨")
+                st.session_state.switch_to_studio = True
+                st.toast("✨ Redirecting to Bespoke Design Suite...", icon="✂️")
+                st.rerun()
 
 
 # ==========================================
