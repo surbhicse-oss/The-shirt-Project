@@ -1,47 +1,58 @@
 import streamlit as st
 import urllib.parse
 from datetime import datetime
+import time
 
 # ==========================================
 # PAGE CONFIGURATION
 # ==========================================
 st.set_page_config(
-    page_title="The Shirt Project | Bespoke Men's Apparel",
+    page_title="The Shirt Project | Luxury Bespoke Atelier",
     page_icon="👔",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
 # Initialize Session States
 if 'current_quote_idx' not in st.session_state:
     st.session_state.current_quote_idx = 0
 
+if 'last_quote_time' not in st.session_state:
+    st.session_state.last_quote_time = time.time()
+
 if 'selected_categories' not in st.session_state:
     st.session_state.selected_categories = ["Shirting"]
 
-if 'active_tab' not in st.session_state:
-    st.session_state.active_tab = 0
+if 'config_collar' not in st.session_state:
+    st.session_state.config_collar = "Italian Cutaway"
+
+if 'config_cuff' not in st.session_state:
+    st.session_state.config_cuff = "French Double Cuff (Cufflinks)"
+
+if 'config_fit' not in st.session_state:
+    st.session_state.config_fit = "Slim Bespoke Contour"
 
 # ==========================================
 # BRAND AESTHETICS & CUSTOM CSS INJECTION
 # ==========================================
 custom_css = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@200;300;400;500;600;700&display=swap');
 
 /* Color Variables */
 :root {
     --sand: #EAE6DF;
     --sand-light: #F7F5F0;
+    --sand-dark: #D4CEBF;
     --charcoal: #1A1D20;
-    --charcoal-light: #2A2E33;
+    --charcoal-light: #25292E;
     --gold: #C5A059;
-    --gold-dark: #A3803C;
+    --gold-bright: #D4AF37;
+    --gold-glow: rgba(197, 160, 89, 0.25);
     --white: #FFFFFF;
-    --border-color: #D6D0C4;
 }
 
-/* Hide default Streamlit headers, footers, & adjust padding */
+/* Hide default Streamlit elements */
 header[data-testid="stHeader"] {
     visibility: hidden;
     height: 0px;
@@ -53,35 +64,77 @@ footer {
 .stDeployButton {
     display: none;
 }
+
+/* Main Container Adjustments */
 #root .block-container {
-    padding-top: 1rem;
-    padding-bottom: 4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 5rem;
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-    max-width: 1350px;
+    max-width: 1400px;
 }
 
 /* Typography Overrides */
 html, body, [class*="css"], .stMarkdown {
     font-family: 'Montserrat', sans-serif;
     color: #1A1D20;
+    background-color: #F7F5F0;
 }
 
 h1, h2, h3, h4, h5, h6, .brand-font {
     font-family: 'Cormorant Garamond', serif !important;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
 }
 
-/* Luxury Header Bar */
+/* Custom Styled Sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #1A1D20 0%, #111315 100%) !important;
+    border-right: 2px solid #C5A059 !important;
+}
+
+[data-testid="stSidebar"] * {
+    color: #EAE6DF !important;
+}
+
+.sidebar-brand-box {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-logo {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.4rem;
+}
+
+.sidebar-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 1.8rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    letter-spacing: 0.15em !important;
+    margin: 0 !important;
+}
+
+.sidebar-tagline {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 0.95rem !important;
+    font-style: italic !important;
+    color: #C5A059 !important;
+}
+
+/* Luxury Header Banner */
 .brand-header-banner {
-    background: linear-gradient(135deg, #1A1D20 0%, #25292E 100%);
+    background: linear-gradient(135deg, #1A1D20 0%, #282C32 100%);
     border-bottom: 3px solid #C5A059;
-    padding: 2.5rem 1.5rem;
-    border-radius: 12px;
+    padding: 2.8rem 2rem;
+    border-radius: 14px;
     text-align: center;
     color: #EAE6DF;
     margin-bottom: 2rem;
-    box-shadow: 0 12px 35px rgba(26, 29, 32, 0.25);
+    box-shadow: 0 15px 40px rgba(26, 29, 32, 0.22);
     position: relative;
     overflow: hidden;
 }
@@ -89,155 +142,160 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 .brand-header-banner::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+    top: -50%; left: -50%; width: 200%; height: 200%;
+    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.12) 0%, transparent 60%);
     pointer-events: none;
 }
 
 .brand-logo-svg {
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 0.5rem;
 }
 
 .brand-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.2em;
     color: #FFFFFF;
     text-transform: uppercase;
     margin: 0;
     line-height: 1;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .brand-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-style: italic;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.16em;
     color: #C5A059;
     margin-top: 0.6rem;
 }
 
-/* Luxury Tabs Styling */
+/* Luxury Tabs Navigation */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: center;
     background-color: #EAE6DF;
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    border: 1px solid #D6D0C4;
-    margin-bottom: 2rem;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+    border: 1px solid #D4CEBF;
+    margin-bottom: 2.2rem;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.04);
 }
 
 .stTabs [data-baseweb="tab"] {
-    height: 3.2rem;
+    height: 3.4rem;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     color: #1A1D20;
     background-color: transparent;
     border-radius: 6px;
-    padding: 0 1.5rem;
-    transition: all 0.3s ease;
+    padding: 0 1.8rem;
+    transition: all 0.35 ease;
 }
 
 .stTabs [aria-selected="true"] {
     background-color: #1A1D20 !important;
     color: #C5A059 !important;
-    box-shadow: 0 4px 12px rgba(26, 29, 32, 0.15);
+    box-shadow: 0 6px 18px rgba(26, 29, 32, 0.2) !important;
+    border-bottom: 2px solid #C5A059 !important;
 }
 
-/* Cards & Containers */
+/* Cards & Elevated Glass Elements */
 .brand-card {
     background: #FFFFFF;
     border: 1px solid #EAE6DF;
     border-top: 3px solid #C5A059;
-    border-radius: 10px;
-    padding: 1.8rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+    transition: all 0.35s ease;
 }
 
 .brand-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.09);
 }
 
 .pillar-card {
-    background: #1A1D20;
+    background: linear-gradient(145deg, #1A1D20 0%, #24282D 100%);
     color: #EAE6DF;
-    padding: 2rem 1.2rem;
-    border-radius: 10px;
+    padding: 2.2rem 1.4rem;
+    border-radius: 12px;
     text-align: center;
     border: 1px solid #C5A059;
     height: 100%;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
 
 .pillar-card:hover {
     border-color: #FFFFFF;
-    transform: translateY(-3px);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(197, 160, 89, 0.25);
 }
 
 .pillar-icon {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: #C5A059;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .pillar-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
+    font-size: 1.55rem;
     color: #FFFFFF;
     font-weight: 600;
     letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
 }
 
 .pillar-desc {
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     color: #B5BAC0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* Fashion Quote Card */
+/* Fashion Quote Banner */
 .quote-banner {
-    background: linear-gradient(135deg, #1A1D20 0%, #292D33 100%);
+    background: linear-gradient(135deg, #1A1D20 0%, #2B3037 100%);
     border: 1px solid #C5A059;
-    padding: 2.2rem 2rem;
-    border-radius: 12px;
+    padding: 2.5rem 2.2rem;
+    border-radius: 14px;
     text-align: center;
     color: #EAE6DF;
-    margin: 1.5rem 0 2.5rem 0;
+    margin: 1rem 0 2.5rem 0;
     position: relative;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
 }
 
 .quote-symbol {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: #C5A059;
     line-height: 0;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 .quote-content {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-style: italic;
     color: #FFFFFF;
-    margin-bottom: 0.8rem;
-    line-height: 1.35;
+    margin-bottom: 0.9rem;
+    line-height: 1.38;
 }
 
 .quote-author {
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: #C5A059;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -247,32 +305,32 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 /* Product Card Styling */
 .product-card {
     background: #FFFFFF;
-    border-radius: 10px;
+    border-radius: 12px;
     border: 1px solid #EAE6DF;
     overflow: hidden;
     margin-bottom: 1.8rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    transition: all 0.35s ease;
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+    transform: translateY(-6px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.1);
     border-color: #C5A059;
 }
 
 .product-img {
     width: 100%;
-    height: 240px;
+    height: 250px;
     object-fit: cover;
     border-bottom: 1px solid #EAE6DF;
 }
 
 .product-info {
-    padding: 1.4rem;
+    padding: 1.5rem;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -280,7 +338,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 }
 
 .product-tag {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #C5A059;
     letter-spacing: 0.18em;
@@ -290,7 +348,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 
 .product-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     color: #1A1D20;
     margin-bottom: 0.5rem;
@@ -298,18 +356,18 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 }
 
 .product-desc {
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: #555555;
-    line-height: 1.5;
-    margin-bottom: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.2rem;
 }
 
 .product-meta {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #888888;
     border-top: 1px dashed #EAE6DF;
     padding-top: 0.8rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 /* Custom Buttons Styling */
@@ -318,13 +376,13 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     color: #C5A059 !important;
     border: 1px solid #C5A059 !important;
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 0.82rem !important;
+    font-size: 0.85rem !important;
     font-weight: 600 !important;
     letter-spacing: 0.15em !important;
     text-transform: uppercase !important;
-    padding: 0.65rem 1.2rem !important;
-    border-radius: 4px !important;
-    transition: all 0.3s ease !important;
+    padding: 0.7rem 1.4rem !important;
+    border-radius: 5px !important;
+    transition: all 0.35s ease !important;
     width: 100%;
 }
 
@@ -332,7 +390,8 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     background-color: #C5A059 !important;
     color: #1A1D20 !important;
     border-color: #C5A059 !important;
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.4) !important;
+    box-shadow: 0 5px 20px rgba(197, 160, 89, 0.45) !important;
+    transform: translateY(-2px);
 }
 
 /* Form Controls Styling */
@@ -342,14 +401,14 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     border: 1px solid #C5A059 !important;
     background-color: #FFFFFF !important;
     color: #1A1D20 !important;
-    border-radius: 4px !important;
+    border-radius: 5px !important;
     font-family: 'Montserrat', sans-serif !important;
 }
 
 .stTextInput > div > div > input:focus, 
 .stTextArea > div > div > textarea:focus {
     border-color: #C5A059 !important;
-    box-shadow: 0 0 8px rgba(197, 160, 89, 0.3) !important;
+    box-shadow: 0 0 10px rgba(197, 160, 89, 0.35) !important;
 }
 
 /* WhatsApp Direct Button */
@@ -359,38 +418,106 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     background-color: #25D366;
     color: #FFFFFF !important;
     text-align: center;
-    padding: 0.9rem 1.5rem;
+    padding: 1rem 1.5rem;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none !important;
     border-radius: 6px;
-    margin-top: 1.2rem;
-    box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
-    transition: all 0.3s ease;
+    margin-top: 1.4rem;
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.38);
+    transition: all 0.35s ease;
 }
 
 .whatsapp-direct-btn:hover {
     background-color: #1EBE57;
     color: #FFFFFF !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* Configurator Preview Box */
+.configurator-preview {
+    background: linear-gradient(145deg, #1A1D20 0%, #292D33 100%);
+    border: 1px solid #C5A059;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: #EAE6DF;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.configurator-badge {
+    display: inline-block;
+    background: #C5A059;
+    color: #1A1D20;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.8rem;
 }
 
 /* Summary Badge */
 .summary-badge {
     background: #F7F5F0;
-    border-left: 4px solid #C5A059;
-    padding: 1.2rem 1.5rem;
-    border-radius: 6px;
+    border-left: 5px solid #C5A059;
+    padding: 1.4rem 1.6rem;
+    border-radius: 8px;
     margin: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
 }
-
 </style>
 """
 st.markdown(custom_css, unsafe_allow_html=True)
+
+# ==========================================
+# SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
+# ==========================================
+with st.sidebar:
+    st.markdown("""
+    <div class="sidebar-brand-box">
+        <svg class="sidebar-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 15 C45 15 42 19 44 24 C45.5 27.5 49 29 50 30 C51 29 54.5 27.5 56 24 C58 19 55 15 50 15 Z" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+            <path d="M50 30 L10 50 L35 50 C40 45 42 45 50 45 C58 45 60 45 65 50 L90 50 Z" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
+            <path d="M38 52 C38 65 42 70 50 70 C58 70 62 65 62 52" stroke="#C5A059" stroke-width="2.5"/>
+        </svg>
+        <div class="sidebar-title">THE SHIRT PROJECT</div>
+        <div class="sidebar-tagline">Bespoke Couture House</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("### 👑 Founder Atelier")
+    st.markdown("""
+    **Mr. Jatin Gupta**  
+    *Founder & Master Couturier*  
+    📍 *264-A, Raj Tilak Road, Jammu*  
+    📞 *+91 8717070570*
+    """)
+    st.markdown("<hr style='border-color: rgba(197,160,89,0.3);'>", unsafe_allow_html=True)
+
+    st.markdown("### ✂️ Quick Category Switcher")
+    sb_category = st.radio(
+        "Explore Lookbook Collection:",
+        ["Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements (Nehru Jackets / Monogramming)"],
+        index=0
+    )
+    if sb_category:
+        st.session_state.selected_categories = [sb_category.split(" (")[0]]
+
+    st.markdown("<hr style='border-color: rgba(197,160,89,0.3);'>", unsafe_allow_html=True)
+    st.markdown("### 💬 Direct WhatsApp Concierge")
+    st.markdown("Need instant fabric guidance or custom pricing?")
+    wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello Mr. Jatin Gupta, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
+    st.markdown(f"""
+    <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white; padding:0.6rem 1rem; border-radius:5px; font-weight:700; text-decoration:none; font-size:0.85rem;">
+        💬 Chat With Founder on WhatsApp
+    </a>
+    """, unsafe_allow_html=True)
 
 # ==========================================
 # BRAND HEADER BANNER
@@ -419,11 +546,10 @@ tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
 ])
 
 # ==========================================
-# SECTION 1: THE ATELIER (HOME PAGE)
+# SECTION 1: THE GRAND ATELIER (HOME PAGE)
 # ==========================================
 with tab_atelier:
     # Rotating Style Quotes System with Timed Auto-Flip
-    import time
     if 'last_quote_time' not in st.session_state:
         st.session_state.last_quote_time = time.time()
 
@@ -440,7 +566,7 @@ with tab_atelier:
         st.session_state.current_quote_idx = (st.session_state.current_quote_idx + 1) % len(quotes)
         st.session_state.last_quote_time = time.time()
 
-    col_quote_content, col_quote_btn = st.columns([5, 1])
+    col_quote_content, col_quote_btn = st.columns([5, 1.2])
     
     with col_quote_content:
         current = quotes[st.session_state.current_quote_idx]
@@ -461,20 +587,20 @@ with tab_atelier:
 
     # Introduction Narrative
     st.markdown("""
-    <div style="text-align: center; max-width: 850px; margin: 0 auto 3rem auto;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.3rem; color: #1A1D20; margin-bottom: 1rem;">
+    <div style="text-align: center; max-width: 880px; margin: 0 auto 3.5rem auto;">
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20; margin-bottom: 1.2rem;">
             Where Master Craftsmanship Meets Modern Elegance
         </h2>
-        <p style="font-size: 1rem; color: #555555; line-height: 1.8;">
-            At <strong>The Shirt Project</strong>, we reject mass production in favor of individual sartorial excellence. 
+        <p style="font-size: 1.02rem; color: #555555; line-height: 1.85;">
+            Founded by <strong>Mr. Jatin Gupta</strong>, <strong>The Shirt Project</strong> rejects mass production in favor of individual sartorial excellence. 
             Every shirt, suit, and garment is drafted from a unique paper pattern created exclusively for your body measurements. 
-            Using centuries-old Savile Row traditions combined with handpicked European textiles, we deliver garments of unmatched precision, comfort, and timeless prestige.
+            Combining royal Indian heritage with centuries-old Savile Row traditions, we deliver garments of unmatched precision, comfort, and timeless prestige.
         </p>
     </div>
     """, unsafe_allow_html=True)
 
     # Brand Pillars (4 Cards)
-    st.markdown("<h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2rem; margin-bottom: 1.5rem;'>The Four Pillars of Our Craft</h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2.2rem; margin-bottom: 1.8rem;'>The Four Pillars of Our Craft</h3>", unsafe_allow_html=True)
     
     col1, col2, col3, col4 = st.columns(4)
     
@@ -509,8 +635,8 @@ with tab_atelier:
         st.markdown("""
         <div class="pillar-card">
             <div class="pillar-icon">👑</div>
-            <div class="pillar-title">Personal Style Consultation</div>
-            <div class="pillar-desc">Private 1-on-1 consultations with our master stylists for wedding galas, executive wardrobes, & casual luxury.</div>
+            <div class="pillar-title">Personal Style</div>
+            <div class="pillar-desc">Private 1-on-1 consultations with Founder Mr. Jatin Gupta for wedding galas, executive wardrobes, & casual luxury.</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -525,18 +651,18 @@ with tab_atelier:
 
 
 # ==========================================
-# SECTION 2: INTERACTIVE CATALOG (CATEGORIES)
+# SECTION 2: THE SARTORIAL VAULT (CATALOG)
 # ==========================================
 with tab_catalog:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20;">The Bespoke Collection Catalog</h2>
-        <p style="color: #666666; font-size: 0.95rem;">Select a category to explore our signature weaves, cuts, and custom style statement pieces.</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #1A1D20;">The Bespoke Collection Catalog</h2>
+        <p style="color: #666666; font-size: 0.98rem;">Select a category to explore our signature weaves, cuts, and custom style statement pieces.</p>
     </div>
     """, unsafe_allow_html=True)
 
     cat_shirting, cat_suiting, cat_trousers, cat_statements = st.tabs([
-        "👔 Shirting",
+        "👔 Shirting Collection",
         "🧥 Suiting & Tuxedos",
         "👖 Trousers & Bottoms",
         "✨ Style Statements"
@@ -582,7 +708,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh1"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Studio request form! Switch to the Bespoke Studio tab to complete your request.")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c2:
             render_catalog_item(
@@ -594,7 +720,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh2"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Studio request form! Switch to the Bespoke Studio tab to complete your request.")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c3:
             render_catalog_item(
@@ -606,7 +732,7 @@ with tab_catalog:
             )
             if st.button("Inquire Shirting", key="btn_sh3"):
                 st.session_state.selected_categories = ["Shirting"]
-                st.info("Added to Bespoke Studio request form! Switch to the Bespoke Studio tab to complete your request.")
+                st.info("Added to Bespoke Design Suite request form!")
 
     # Sub-Category 2: Suiting & Tuxedos
     with cat_suiting:
@@ -621,7 +747,7 @@ with tab_catalog:
             )
             if st.button("Inquire Suiting", key="btn_suit1"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c2:
             render_catalog_item(
@@ -633,7 +759,7 @@ with tab_catalog:
             )
             if st.button("Inquire Tuxedo", key="btn_suit2"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c3:
             render_catalog_item(
@@ -645,7 +771,7 @@ with tab_catalog:
             )
             if st.button("Inquire Blazer", key="btn_suit3"):
                 st.session_state.selected_categories = ["Suiting & Tuxedos"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
     # Sub-Category 3: Trousers & Bottoms
     with cat_trousers:
@@ -660,7 +786,7 @@ with tab_catalog:
             )
             if st.button("Inquire Trousers", key="btn_tr1"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c2:
             render_catalog_item(
@@ -672,7 +798,7 @@ with tab_catalog:
             )
             if st.button("Inquire Gurkha Pants", key="btn_tr2"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c3:
             render_catalog_item(
@@ -684,7 +810,7 @@ with tab_catalog:
             )
             if st.button("Inquire Linen Pants", key="btn_tr3"):
                 st.session_state.selected_categories = ["Trousers & Bottoms"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
     # Sub-Category 4: Style Statements
     with cat_statements:
@@ -699,7 +825,7 @@ with tab_catalog:
             )
             if st.button("Inquire Nehru Jacket", key="btn_st1"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c2:
             render_catalog_item(
@@ -711,7 +837,7 @@ with tab_catalog:
             )
             if st.button("Inquire Waistcoat", key="btn_st2"):
                 st.session_state.selected_categories = ["Style Statements (Nehru Jacket / Waistcoat)"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
         with c3:
             render_catalog_item(
@@ -723,31 +849,71 @@ with tab_catalog:
             )
             if st.button("Inquire Monogramming", key="btn_st3"):
                 st.session_state.selected_categories = ["Bespoke Monogramming & Details"]
-                st.info("Added to Bespoke Studio request form!")
+                st.info("Added to Bespoke Design Suite request form!")
 
 
 # ==========================================
-# SECTION 3: BESPOKE STUDIO (CUSTOM QUOTE FORM)
+# SECTION 3: BESPOKE DESIGN SUITE (CUSTOM QUOTE & CONFIGURATOR)
 # ==========================================
 with tab_studio:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20;">Bespoke Design & Quote Request Studio</h2>
-        <p style="color: #666666; font-size: 0.95rem;">Submit your custom stitching preferences, fabric desires, or inspiration images to receive a personalized quote from our master tailors.</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #1A1D20;">Bespoke Design & Interactive Studio</h2>
+        <p style="color: #666666; font-size: 0.98rem;">Configure your shirt cut preferences or submit custom stitching requests directly to Founder Mr. Jatin Gupta.</p>
     </div>
     """, unsafe_allow_html=True)
+
+    # Interactive Live Visual Configurator Widget
+    st.markdown("<h3 style='font-family: \"Cormorant Garamond\", serif; font-size: 1.8rem; border-bottom: 2px solid #C5A059; padding-bottom: 0.4rem;'>🎨 Interactive Sartorial Configurator</h3>", unsafe_allow_html=True)
+    
+    cfg1, cfg2, cfg3, cfg4 = st.columns(4)
+    with cfg1:
+        st.session_state.config_collar = st.selectbox(
+            "1. Select Collar Style",
+            ["Italian Cutaway", "Classic Spread", "Bandhgala / Mandarin", "Button-Down Casual", "Tuxedo Wingtip"]
+        )
+    with cfg2:
+        st.session_state.config_cuff = st.selectbox(
+            "2. Select Cuff Style",
+            ["French Double Cuff (Cufflinks)", "Single Barrel Convertible", "2-Button Mitred Cuff", "Neapolitan Soft Cuff"]
+        )
+    with cfg3:
+        st.session_state.config_fit = st.selectbox(
+            "3. Select Contour Fit",
+            ["Slim Bespoke Contour", "Classic Tailored Fit", "Relaxed Heritage Fit"]
+        )
+    with cfg4:
+        config_monogram = st.selectbox(
+            "4. Monogram Placement",
+            ["Left Cuff Embroidery", "Collar Band Inside", "Shirt Pocket Edge", "No Monogram"]
+        )
+
+    # Configurator Live Preview Summary Box
+    st.markdown(f"""
+    <div class="configurator-preview">
+        <span class="configurator-badge">✨ Live Bespoke Silhouette Blueprint</span>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 0.4rem;">
+            {st.session_state.config_fit} • {st.session_state.config_collar} Collar • {st.session_state.config_cuff}
+        </div>
+        <div style="font-size: 0.85rem; color: #C5A059;">
+            Monogram Detail: <strong>{config_monogram}</strong> | Estimated Handcraft Time: <strong>18-24 Precision Hours</strong>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
     form_col, info_col = st.columns([3, 2])
 
     with form_col:
         st.markdown('<div class="brand-card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='font-family: \"Cormorant Garamond\", serif; font-size: 1.8rem; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem;'>Client & Customization Details</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='font-family: \"Cormorant Garamond\", serif; font-size: 1.8rem; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem;'>Client & Customization Request</h3>", unsafe_allow_html=True)
 
         client_name = st.text_input("Full Name *", placeholder="e.g. Lord Alexander Sterling")
         
         c_mob, c_email = st.columns(2)
         with c_mob:
-            client_phone = st.text_input("WhatsApp / Mobile Number *", placeholder="+1 (555) 019-2834")
+            client_phone = st.text_input("WhatsApp / Mobile Number *", placeholder="+91 8717070570")
         with c_email:
             client_email = st.text_input("Email Address *", placeholder="alexander@sterling.com")
 
@@ -759,7 +925,6 @@ with tab_studio:
             "Bespoke Monogramming & Details"
         ]
 
-        # Ensure default selected category is valid
         default_cats = [c for c in st.session_state.selected_categories if c in category_options]
         if not default_cats:
             default_cats = [category_options[0]]
@@ -772,15 +937,15 @@ with tab_studio:
 
         fabric_notes = st.text_area(
             "Preferred Fabric & Customization Notes",
-            placeholder="Specify collar preferences (e.g. Italian cutaway, button-down), cuffs (single barrel, French cuff), fabric weights, pattern choices, initial monograms, or event dates...",
-            height=140
+            placeholder=f"Configured: {st.session_state.config_collar} collar with {st.session_state.config_cuff}. Add specific fabric weight, pattern choices, initial letters for monogramming, or event dates...",
+            height=130
         )
 
         uploaded_files = st.file_uploader(
             "Upload Photo / Style Inspiration (PNG, JPG, JPEG)",
             type=["png", "jpg", "jpeg"],
             accept_multiple_files=True,
-            help="Upload images of suits, shirts, or collars you want our master tailor to replicate."
+            help="Upload images of suits, shirts, or collars you want Founder Mr. Jatin Gupta to replicate."
         )
 
         submit_quote = st.button("✨ Request Bespoke Quote")
@@ -820,7 +985,13 @@ with tab_studio:
 *Email:* {client_email if client_email else 'Not provided'}
 *Requested Categories:* {cats_str}
 
-*Customization & Fabric Notes:*
+*Sartorial Configuration:*
+- Fit: {st.session_state.config_fit}
+- Collar: {st.session_state.config_collar}
+- Cuff: {st.session_state.config_cuff}
+- Monogram: {config_monogram}
+
+*Customization Notes:*
 {fabric_notes if fabric_notes else 'Standard Bespoke Consultation requested.'}{file_count_str}
 ---------------------------------------
 Sent via The Shirt Project Web Studio
@@ -834,29 +1005,30 @@ Sent via The Shirt Project Web Studio
             
             st.markdown(f"""
             <div class="summary-badge">
-                <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #1A1D20; margin: 0 0 0.5rem 0;">
+                <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; color: #1A1D20; margin: 0 0 0.5rem 0;">
                     Bespoke Request Summary for {client_name}
                 </h4>
-                <p style="margin: 0; font-size: 0.9rem; color: #333333;">
+                <p style="margin: 0; font-size: 0.92rem; color: #333333; line-height: 1.6;">
+                    <strong>Configuration:</strong> {st.session_state.config_fit} | {st.session_state.config_collar} Collar | {st.session_state.config_cuff}<br>
                     <strong>Categories:</strong> {cats_str}<br>
                     <strong>Contact:</strong> {client_phone} | {client_email if client_email else 'N/A'}<br>
                     <strong>Customization Details:</strong> {fabric_notes if fabric_notes else 'Default fit'}
                 </p>
                 <a href="{wa_link}" target="_blank" class="whatsapp-direct-btn">
-                    💬 Click Here to Send Direct WhatsApp Inquiry
+                    💬 Click Here to Send Direct WhatsApp Inquiry to Founder
                 </a>
             </div>
             """, unsafe_allow_html=True)
 
 
 # ==========================================
-# SECTION 4: CONTACT & CONCIERGE
+# SECTION 4: VIP CONCIERGE & FOUNDER
 # ==========================================
 with tab_contact:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
-        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #1A1D20;">The Royal Atelier & VIP Concierge</h2>
-        <p style="color: #666666; font-size: 0.95rem;">Book a private fitting appointment or reach Founder Mr. Jatin Gupta directly.</p>
+        <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #1A1D20;">The Royal Atelier & VIP Concierge</h2>
+        <p style="color: #666666; font-size: 0.98rem;">Book a private fitting appointment or reach Founder Mr. Jatin Gupta directly.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -868,7 +1040,7 @@ with tab_contact:
             <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: #1A1D20; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem;">
                 The Royal Jammu Atelier
             </h3>
-            <p style="font-size: 0.95rem; line-height: 1.8; color: #444444;">
+            <p style="font-size: 0.95rem; line-height: 1.85; color: #444444;">
                 <strong>The Shirt Project Atelier</strong><br>
                 👑 <strong>Founder & Master Couturier:</strong> Mr. Jatin Gupta<br>
                 📍 <strong>Address:</strong> 264-A, Raj Tilak Road, Jammu<br><br>
@@ -899,7 +1071,7 @@ with tab_contact:
         st.markdown('</div>', unsafe_allow_html=True)
 
     # FAQ Accordion Section
-    st.markdown("<br><h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2rem;'>Frequently Asked Bespoke Questions</h3>", unsafe_allow_html=True)
+    st.markdown("<br><h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2.2rem;'>Frequently Asked Bespoke Questions</h3>", unsafe_allow_html=True)
     
     with st.expander("❓ How long does a bespoke shirt or suit take to craft?"):
         st.write("Each garment requires approximately 2 to 3 weeks for master pattern drafting, hand cutting, and stitching. For urgent gala events, expedited 7-day express bespoke service is available upon request.")
@@ -914,7 +1086,7 @@ with tab_contact:
 # FOOTER
 # ==========================================
 st.markdown("""
-<div style="text-align: center; border-top: 1px solid #EAE6DF; margin-top: 4rem; padding-top: 2rem; color: #888888; font-size: 0.8rem; letter-spacing: 0.1em;">
-    © 2026 THE SHIRT PROJECT. CRAFTED TO MEASURE. TAILORED FOR DISTINCTION. ALL RIGHTS RESERVED.
+<div style="text-align: center; border-top: 1px solid #EAE6DF; margin-top: 4rem; padding-top: 2rem; color: #888888; font-size: 0.82rem; letter-spacing: 0.12em;">
+    © 2026 THE SHIRT PROJECT • FOUNDED BY MR. JATIN GUPTA • CRAFTED TO MEASURE. TAILORED FOR DISTINCTION.
 </div>
 """, unsafe_allow_html=True)
