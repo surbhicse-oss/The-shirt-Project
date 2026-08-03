@@ -480,19 +480,19 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ==========================================
 with st.sidebar:
     st.markdown("""
-    <div class="sidebar-brand-box">
-        <svg class="sidebar-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Hanger Top Hook -->
-            <path d="M 50 14 C 44 14 39 19 43 25 C 45 28 48 30 50 32" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
-            <!-- Hanger Arms & Base -->
-            <path d="M 50 32 L 15 52 C 10 54 10 60 15 62 L 35 62 M 50 32 L 85 52 C 90 54 90 60 85 62 L 65 62" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- TSP Monogram inside Hanger -->
-            <path d="M 43 51 C 36 47 36 55 44 59 C 50 62 46 69 40 67 C 35 65 32 62 32 62" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-            <path d="M 51 49 C 62 49 63 58 51 61 L 51 69" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-            <path d="M 44 48 L 56 48 M 50 48 L 50 69" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
+    <div class="sidebar-brand-box" style="background: #EAE6DF; border-radius: 10px; padding: 1.2rem 0.8rem; margin-bottom: 1.5rem; border: 1px solid #C5A059;">
+        <svg viewBox="0 0 300 180" width="160" height="96" xmlns="http://www.w3.org/2000/svg">
+            <!-- Coat Hanger Hook -->
+            <path d="M 150 20 C 135 20 125 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round"/>
+            <!-- Coat Hanger Outer Frame -->
+            <path d="M 150 80 L 50 125 C 40 130 40 143 50 147 L 105 147 M 150 80 L 250 125 C 260 130 260 143 250 147 L 195 147" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- SP Monogram inside Hanger -->
+            <path d="M 132 120 C 115 110 115 130 138 137 C 152 142 142 160 125 155 C 112 151 108 143 108 143" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 117 C 175 117 178 137 152 143 L 152 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 113 L 162 113 M 150 113 L 150 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
         </svg>
-        <div class="sidebar-title">THE SHIRT PROJECT</div>
-        <div class="sidebar-tagline">Bespoke Couture House</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #1A1D20; letter-spacing: 0.1em; margin-top: 0.2rem;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; color: #8A6D3B; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.3rem;">Founded & Created by Jatin Gupta</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -529,18 +529,21 @@ with st.sidebar:
 # ==========================================
 st.markdown("""
 <div class="brand-header-banner">
-    <svg style="width: 140px; height: 95px; margin-bottom: 0.5rem;" viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Hanger Top Hook -->
-        <path d="M 50 10 C 43 10 38 15 42 22 C 44 25 48 27 50 30" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round"/>
-        <!-- Hanger Arms & Base -->
-        <path d="M 50 30 L 15 50 C 10 52 10 58 15 60 L 35 60 M 50 30 L 85 50 C 90 52 90 58 85 60 L 65 60" stroke="#C5A059" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- TSP Monogram inside Hanger -->
-        <path d="M 43 49 C 36 45 36 53 44 57 C 50 60 46 67 40 65 C 35 63 32 60 32 60" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-        <path d="M 51 47 C 62 47 63 56 51 59 L 51 67" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-        <path d="M 44 46 L 56 46 M 50 46 L 50 67" stroke="#C5A059" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-    <h1 class="brand-title">The Shirt Project</h1>
-    <div class="brand-tagline">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="background: #EAE6DF; display: inline-block; padding: 2rem 3rem; border-radius: 12px; border: 2px solid #C5A059; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 1rem;">
+        <svg viewBox="0 0 300 180" width="220" height="132" xmlns="http://www.w3.org/2000/svg">
+            <!-- Coat Hanger Hook -->
+            <path d="M 150 20 C 135 20 125 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round"/>
+            <!-- Coat Hanger Outer Frame -->
+            <path d="M 150 80 L 50 125 C 40 130 40 143 50 147 L 105 147 M 150 80 L 250 125 C 260 130 260 143 250 147 L 195 147" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- SP Monogram inside Hanger -->
+            <path d="M 132 120 C 115 110 115 130 138 137 C 152 142 142 160 125 155 C 112 151 108 143 108 143" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 117 C 175 117 178 137 152 143 L 152 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 113 L 162 113 M 150 113 L 150 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 600; color: #1A1D20; letter-spacing: 0.12em; line-height: 1; margin-top: 0.3rem;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: #8A6D3B; letter-spacing: 0.22em; text-transform: uppercase; margin-top: 0.6rem;">Founded & Created by Jatin Gupta</div>
+    </div>
+    <div class="brand-tagline" style="margin-top: 0.8rem;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
