@@ -715,6 +715,13 @@ with st.sidebar:
             st.session_state.selected_categories = [sb_filter_choice]
             st.session_state.switch_to_catalog = True
             st.session_state.last_sb_choice = sb_filter_choice
+            sub_map = {
+                "Shirting": 0,
+                "Suiting & Tuxedos": 1,
+                "Trousers & Bottoms": 2,
+                "Style Statements": 3
+            }
+            st.session_state.catalog_sub_index = sub_map.get(sb_filter_choice, 0)
     else:
         st.session_state.selected_categories = ["Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements"]
 
@@ -766,14 +773,24 @@ st.markdown("""
 # MAIN NAVIGATION TABS & AUTOMATIC REDIRECTION
 # ==========================================
 if st.session_state.get("switch_to_catalog", False):
-    components.html("""
+    sub_idx = st.session_state.get("catalog_sub_index", 0)
+    components.html(f"""
     <script>
-    setTimeout(function() {
-        const mainTabs = window.parent.document.querySelectorAll('div.stTabs button[data-baseweb="tab"]');
-        if (mainTabs && mainTabs.length >= 2) {
+    setTimeout(function() {{
+        const mainTabs = window.parent.document.querySelectorAll('div.stTabs > div[data-baseweb="tab-list"] > button[data-baseweb="tab"]');
+        if (mainTabs && mainTabs.length >= 2) {{
             mainTabs[1].click();
-        }
-    }, 150);
+            setTimeout(function() {{
+                const allTabLists = window.parent.document.querySelectorAll('div.stTabs div[data-baseweb="tab-list"]');
+                if (allTabLists && allTabLists.length >= 2) {{
+                    const subTabs = allTabLists[1].querySelectorAll('button[data-baseweb="tab"]');
+                    if (subTabs && subTabs.length > {sub_idx}) {{
+                        subTabs[{sub_idx}].click();
+                    }}
+                }}
+            }}, 200);
+        }}
+    }}, 150);
     </script>
     """, height=1)
     st.session_state.switch_to_catalog = False
