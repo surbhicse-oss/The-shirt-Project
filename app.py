@@ -184,7 +184,7 @@ div[data-baseweb="toast"],
     font-size: 1.1rem !important;
 }
 
-/* Custom Styled Sidebar with High Contrast Rules */
+/* Custom Styled Sidebar with Bright Metallic Gold Text Rules */
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
 [data-testid="stSidebar"] section {
@@ -195,36 +195,32 @@ div[data-baseweb="toast"],
 
 [data-testid="stSidebar"] *,
 [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
+[data-testid="stSidebar"] [data-testid="stExpander"] *,
+[data-testid="stSidebar"] [data-testid="stExpander"] summary *,
+[data-testid="stSidebar"] details summary,
+[data-testid="stSidebar"] details summary *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] a,
 [data-testid="stSidebar"] li,
-[data-testid="stSidebar"] label {
-    color: #FFFFFF !important;
-    fill: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] strong,
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] h4,
+[data-testid="stSidebar"] h5 {
+    color: #C5A059 !important;
+    fill: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-[data-testid="stSidebar"] h1, 
-[data-testid="stSidebar"] h2, 
-[data-testid="stSidebar"] h3, 
-[data-testid="stSidebar"] h4,
-[data-testid="stSidebar"] h5,
-[data-testid="stSidebar"] summary,
-[data-testid="stSidebar"] summary *,
-[data-testid="stSidebar"] label p,
-[data-testid="stSidebar"] label span,
-[data-testid="stSidebar"] .gold-text {
-    color: #C5A059 !important;
-    fill: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-    font-family: 'Cormorant Garamond', serif !important;
-    font-weight: 700 !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+[data-testid="stSidebar"] .white-text {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
 }
 
 /* Main Navigation Tabs - Dark Emerald & Gold */
@@ -572,8 +568,8 @@ with st.sidebar:
             <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
             <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         </svg>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; letter-spacing: 0.12em; margin-top: 0.2rem;">The Shirt Project</div>
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; margin-top: 0.2rem; display: block;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem; display: block;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -602,10 +598,10 @@ with st.sidebar:
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
         <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.5rem;">👑 Founder Atelier</span>
         <div style="font-size: 0.92rem; line-height: 1.6;">
-            <strong style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">Mr. Jatin Gupta</strong><br>
+            <strong style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">Mr. Jatin Gupta</strong><br>
             <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; font-style: italic;">Founder</span><br>
-            <span style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
-            <span style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">📞 +91 8717070570</span>
+            <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
+            <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">📞 +91 8717070570</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -614,7 +610,7 @@ with st.sidebar:
     st.markdown(f"""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
         <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</span>
-        <span style="font-size: 0.88rem; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; display: block; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</span>
+        <span style="font-size: 0.88rem; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</span>
         <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white !important; -webkit-text-fill-color:white !important; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.9rem; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
             💬 Chat With Us on WhatsApp
         </a>
