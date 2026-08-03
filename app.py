@@ -95,8 +95,9 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     letter-spacing: 0.06em;
 }
 
-/* Custom Styled Sidebar with High Contrast Rules */
+/* Custom Styled Sidebar with High Contrast Gold & White Rules */
 [data-testid="stSidebar"] {
+    background-color: #1A1D20 !important;
     background: #1A1D20 !important;
     border-right: 2px solid #C5A059 !important;
 }
@@ -109,27 +110,34 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
-[data-testid="stSidebar"] label {
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] summary,
+[data-testid="stSidebar"] details {
+    color: #FFFFFF !important;
     background-color: transparent !important;
     background: transparent !important;
-    color: #FFFFFF !important;
 }
 
 [data-testid="stSidebar"] h1, 
 [data-testid="stSidebar"] h2, 
 [data-testid="stSidebar"] h3, 
-[data-testid="stSidebar"] h4 {
+[data-testid="stSidebar"] h4,
+[data-testid="stSidebar"] summary span,
+[data-testid="stSidebar"] summary div,
+[data-testid="stSidebar"] label p,
+[data-testid="stSidebar"] .stSelectbox label {
     color: #C5A059 !important;
     background-color: transparent !important;
     background: transparent !important;
     font-family: 'Cormorant Garamond', serif !important;
     letter-spacing: 0.08em !important;
-    font-size: 1.4rem !important;
+    font-weight: 700 !important;
 }
 
-[data-testid="stSidebar"] .stRadio label p {
-    color: #FFFFFF !important;
-    font-size: 0.95rem !important;
+[data-testid="stSidebar"] [data-baseweb="select"] div,
+[data-testid="stSidebar"] [data-baseweb="select"] span {
+    color: #C5A059 !important;
+    background-color: #24282D !important;
 }
 
 .sidebar-brand-box {
@@ -530,14 +538,29 @@ with st.sidebar:
         if genie_input:
             st.info(query_sartorial_genie(genie_input))
 
+    # Category Filter Choice Selector in Sidebar
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.5rem;">👑 Founder Atelier</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.4rem;">✂️ Filter Lookbook by Category</div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    sb_filter_choice = st.selectbox(
+        "Select Collection Category:",
+        ["All Collections", "Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements"],
+        key="sidebar_collection_filter"
+    )
+    if sb_filter_choice != "All Collections":
+        st.session_state.selected_categories = [sb_filter_choice]
+
+    st.markdown("""
+    <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.5rem;">👑 Founder Atelier</div>
         <div style="font-size: 0.92rem; color: #FFFFFF !important; line-height: 1.6;">
-            <strong>Mr. Jatin Gupta</strong><br>
+            <strong style="color: #FFFFFF !important;">Mr. Jatin Gupta</strong><br>
             <span style="color: #C5A059 !important; font-style: italic;">Founder</span><br>
-            📍 264-A, Raj Tilak Road, Jammu<br>
-            📞 +91 8717070570
+            <span style="color: #FFFFFF !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
+            <span style="color: #FFFFFF !important;">📞 +91 8717070570</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -545,8 +568,8 @@ with st.sidebar:
     wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
     st.markdown(f"""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</div>
-        <div style="font-size: 0.88rem; color: #EAE6DF !important; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</div>
+        <div style="font-size: 0.88rem; color: #FFFFFF !important; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</div>
         <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white !important; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.9rem; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
             💬 Chat With Us on WhatsApp
         </a>
