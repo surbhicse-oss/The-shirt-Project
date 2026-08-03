@@ -72,6 +72,15 @@ footer {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     max-width: 1400px;
+/* Global Text Overflow Protection & Responsive Typography */
+*, *:before, *:after {
+    box-sizing: border-box !important;
+}
+
+p, div, h1, h2, h3, h4, h5, h6, span, label, a {
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+    max-width: 100% !important;
 }
 
 /* Typography Overrides */
@@ -559,9 +568,9 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; font-weight: 700; color: #FFFFFF; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1; margin-top: 0.4rem;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif; font-size: 0.82rem; font-weight: 700; color: #C5A059; letter-spacing: 0.24em; text-transform: uppercase; margin-top: 0.7rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: #EAE6DF; letter-spacing: 0.12em; margin-top: 0.6rem;">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 5.5vw, 3.4rem); font-weight: 700; color: #FFFFFF; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; overflow-wrap: break-word; word-wrap: break-word;">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.6rem, 2vw, 0.82rem); font-weight: 700; color: #C5A059; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; overflow-wrap: break-word; word-wrap: break-word;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(0.95rem, 2.8vw, 1.35rem); font-style: italic; color: #EAE6DF; letter-spacing: 0.08em; margin-top: 0.6rem; overflow-wrap: break-word; word-wrap: break-word;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
