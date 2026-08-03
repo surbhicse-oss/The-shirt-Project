@@ -642,9 +642,9 @@ if st.session_state.get("switch_to_studio", False):
         if (mainTabs && mainTabs.length >= 3) {
             mainTabs[2].click();
         }
-    }, 100);
+    }, 150);
     </script>
-    """, height=0)
+    """, height=1)
     st.session_state.switch_to_studio = False
 
 tab_atelier, tab_catalog, tab_studio, tab_contact = st.tabs([
