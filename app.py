@@ -457,38 +457,53 @@ div[data-baseweb="toast"],
     margin-bottom: 1.2rem;
 }
 
-/* Custom Buttons Styling - All Dark Buttons Force Gold Text */
-.stButton > button,
-.stButton > button *,
-.stButton > button p,
-.stButton > button span,
-.stButton > button div {
+/* Custom Buttons Styling - Clean Single Outer Gold Border */
+.stButton > button {
     background-color: #1A1D20 !important;
+    background: #1A1D20 !important;
     color: #C5A059 !important;
     -webkit-text-fill-color: #C5A059 !important;
     border: 1.5px solid #C5A059 !important;
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 0.85rem !important;
+    font-size: 0.88rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.08em !important;
     text-transform: uppercase !important;
-    padding: 0.75rem 1.2rem !important;
-    border-radius: 6px !important;
+    padding: 0.9rem 1.4rem !important;
+    border-radius: 8px !important;
     transition: all 0.35s ease !important;
     width: 100%;
     white-space: normal !important;
     word-break: keep-all !important;
     line-height: 1.35 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
 }
 
-.stButton > button:hover,
-.stButton > button:hover * {
+.stButton > button *,
+.stButton > button p,
+.stButton > button span,
+.stButton > button div {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+}
+
+.stButton > button:hover {
     background-color: #C5A059 !important;
+    background: #C5A059 !important;
+    border-color: #C5A059 !important;
+    box-shadow: 0 6px 22px rgba(197, 160, 89, 0.45) !important;
+    transform: translateY(-2px);
+}
+
+.stButton > button:hover *,
+.stButton > button:hover p,
+.stButton > button:hover span {
     color: #1A1D20 !important;
     -webkit-text-fill-color: #1A1D20 !important;
-    border-color: #C5A059 !important;
-    box-shadow: 0 5px 20px rgba(197, 160, 89, 0.45) !important;
-    transform: translateY(-2px);
 }
 
 /* Expanders Styling */
@@ -701,8 +716,8 @@ with st.sidebar:
 # BRAND HEADER BANNER
 # ==========================================
 st.markdown("""
-<div style="background-color: #1A1D20 !important; background: #1A1D20 !important; border-radius: 14px; border: 2px solid #C5A059; padding: 2.5rem 1.5rem; text-align: center; box-shadow: 0 12px 35px rgba(0,0,0,0.35); margin-bottom: 2rem;">
-    <svg viewBox="0 0 300 160" width="180" height="96" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.5rem; display: block; margin-left: auto; margin-right: auto;">
+<div style="background: linear-gradient(135deg, #050607 0%, #1A1D20 50%, #2A241A 100%) !important; border-radius: 16px; border: 2px solid #C5A059; padding: 2.8rem 2rem; text-align: center; box-shadow: 0 14px 40px rgba(0,0,0,0.5), 0 0 25px rgba(197, 160, 89, 0.2); margin-bottom: 2.2rem;">
+    <svg viewBox="0 0 300 160" width="200" height="106" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.6rem; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.35));">
         <!-- Coat Hanger Hook -->
         <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
         <!-- Outer Hanger -->
@@ -712,9 +727,9 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.85rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.2em !important; text-transform: uppercase !important; margin-top: 0.5rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 1.25rem !important; font-style: italic !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em !important; margin-top: 0.5rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3.2rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.88rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.22em !important; text-transform: uppercase !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-style: italic !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
