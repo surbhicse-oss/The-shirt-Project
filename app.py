@@ -186,7 +186,7 @@ header *,
     -webkit-text-fill-color: #C5A059 !important;
 }
 
-/* Sidebar Toggle Buttons (Glowing Gold Button with High Contrast Dark Arrow) */
+/* Sidebar Toggle Buttons (Vibrant Crimson Red Button with White Arrow Icon) */
 [data-testid="collapsedControl"],
 [data-testid="stSidebarCollapseButton"],
 button[data-testid="baseButton-header"],
@@ -195,13 +195,13 @@ button[data-testid="stSidebarCollapseButton"],
 button[aria-label*="sidebar"],
 button[aria-label*="Sidebar"],
 header [data-testid="stHeaderNav"] {
-    background-color: #C5A059 !important;
-    background: linear-gradient(135deg, #C5A059 0%, #E5C158 100%) !important;
+    background-color: #D32F2F !important;
+    background: linear-gradient(135deg, #D32F2F 0%, #B71C1C 100%) !important;
     border: 2px solid #FFFFFF !important;
     border-radius: 8px !important;
-    color: #1A1D20 !important;
-    -webkit-text-fill-color: #1A1D20 !important;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.95), 0 4px 15px rgba(0,0,0,0.6) !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    box-shadow: 0 0 20px rgba(211, 47, 47, 0.95), 0 4px 15px rgba(0,0,0,0.6) !important;
     visibility: visible !important;
     opacity: 1 !important;
     transform: scale(1.18) !important;
@@ -215,18 +215,18 @@ header [data-testid="stHeaderNav"] {
 [data-testid="stHeader"] button *,
 button[aria-label*="sidebar"] *,
 button[aria-label*="Sidebar"] * {
-    color: #1A1D20 !important;
-    fill: #1A1D20 !important;
-    stroke: #1A1D20 !important;
-    -webkit-text-fill-color: #1A1D20 !important;
+    color: #FFFFFF !important;
+    fill: #FFFFFF !important;
+    stroke: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
     font-weight: 900 !important;
 }
 
 [data-testid="collapsedControl"]:hover,
 [data-testid="stSidebarCollapseButton"]:hover {
-    background: #FFFFFF !important;
+    background: #FF5252 !important;
     transform: scale(1.28) !important;
-    box-shadow: 0 0 30px rgba(255, 255, 255, 1) !important;
+    box-shadow: 0 0 30px rgba(255, 82, 82, 1) !important;
 }
 
 .brand-header-banner-black,
