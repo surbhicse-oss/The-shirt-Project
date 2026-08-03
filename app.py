@@ -167,7 +167,7 @@ div[role="option"]:hover {
 }
 
 /* Toast Notifications - Black/Dark Slate Background & Metallic Gold Text */
-/* Streamlit Top Header Bar & Brand Header Banner - Solid Pitch Black with Metallic Gold Text */
+/* Streamlit Top Header Bar - Solid Pitch Black with Metallic Gold Text */
 header,
 [data-testid="stHeader"],
 .stHeader,
@@ -179,58 +179,30 @@ div[data-testid="stHeader"] {
     border-bottom: 2px solid #C5A059 !important;
 }
 
-header *,
-[data-testid="stHeader"] * {
-    color: #C5A059 !important;
-    fill: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-}
-
-/* Floating Crimson Red Sidebar Toggle Button (Always Fixed at Top Left of Screen) */
+/* Sidebar Toggle Button - High Visibility Red & White Button */
+[data-testid="stSidebarCollapseButton"],
 [data-testid="collapsedControl"],
-button[data-testid="stSidebarCollapseButton"],
-[data-testid="stHeader"] button[aria-label*="sidebar"],
-button[aria-label*="Sidebar"],
+[data-testid="stHeader"] button,
 button[aria-label*="sidebar"],
-header [data-testid="stHeaderNav"] {
-    position: fixed !important;
-    top: 14px !important;
-    left: 14px !important;
-    z-index: 9999999 !important;
-    width: 48px !important;
-    height: 48px !important;
+button[aria-label*="Sidebar"] {
     background-color: #D32F2F !important;
-    background: linear-gradient(135deg, #E53935 0%, #B71C1C 100%) !important;
-    border: 2.5px solid #FFFFFF !important;
-    border-radius: 50% !important;
+    background: #D32F2F !important;
+    border: 1.5px solid #FFFFFF !important;
+    border-radius: 6px !important;
     color: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
-    box-shadow: 0 0 25px rgba(229, 57, 53, 0.95), 0 4px 15px rgba(0,0,0,0.7) !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    cursor: pointer !important;
-    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 10px rgba(211, 47, 47, 0.8) !important;
 }
 
+[data-testid="stSidebarCollapseButton"] *,
 [data-testid="collapsedControl"] *,
-button[data-testid="stSidebarCollapseButton"] *,
-[data-testid="stHeader"] button * {
+[data-testid="stHeader"] button *,
+button[aria-label*="sidebar"] *,
+button[aria-label*="Sidebar"] * {
     color: #FFFFFF !important;
     fill: #FFFFFF !important;
     stroke: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
-    font-weight: 900 !important;
-    font-size: 1.3rem !important;
-}
-
-[data-testid="collapsedControl"]:hover,
-button[data-testid="stSidebarCollapseButton"]:hover {
-    background: #FF5252 !important;
-    transform: scale(1.15) !important;
-    box-shadow: 0 0 35px rgba(255, 82, 82, 1) !important;
 }
 
 .brand-header-banner-black,
