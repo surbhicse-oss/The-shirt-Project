@@ -470,12 +470,15 @@ div[data-baseweb="toast"],
     font-family: 'Montserrat', sans-serif !important;
     font-size: 0.85rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.15em !important;
+    letter-spacing: 0.06em !important;
     text-transform: uppercase !important;
-    padding: 0.7rem 1.4rem !important;
-    border-radius: 5px !important;
+    padding: 0.75rem 1.2rem !important;
+    border-radius: 6px !important;
     transition: all 0.35s ease !important;
     width: 100%;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    line-height: 1.35 !important;
 }
 
 .stButton > button:hover,
@@ -502,21 +505,36 @@ div[data-baseweb="toast"],
     opacity: 1 !important;
 }
 
-/* Form Controls Styling */
-.stTextInput > div > div > input, 
-.stTextArea > div > div > textarea, 
-.stSelectbox > div > div {
+/* Form Controls & Inquiry Box Typed Text Styling - Metallic Gold */
+.stTextInput input, 
+.stTextArea textarea, 
+.stSelectbox > div > div,
+input[type="text"],
+textarea,
+div[data-baseweb="input"] input,
+div[data-baseweb="textarea"] textarea {
     border: 1.5px solid #C5A059 !important;
-    background-color: #FFFFFF !important;
-    color: #1A1D20 !important;
-    border-radius: 5px !important;
+    background-color: #1A1D20 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    border-radius: 6px !important;
     font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1rem !important;
 }
 
-.stTextInput > div > div > input:focus, 
-.stTextArea > div > div > textarea:focus {
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: rgba(197, 160, 89, 0.65) !important;
+    -webkit-text-fill-color: rgba(197, 160, 89, 0.65) !important;
+}
+
+.stTextInput input:focus, 
+.stTextArea textarea:focus {
     border-color: #C5A059 !important;
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.35) !important;
+    box-shadow: 0 0 12px rgba(197, 160, 89, 0.45) !important;
 }
 
 /* WhatsApp Direct Button */
@@ -679,9 +697,9 @@ st.markdown("""
         <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; overflow-wrap: break-word; word-wrap: break-word;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.7rem, 2vw, 0.88rem); font-weight: 700; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; overflow-wrap: break-word; word-wrap: break-word;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
-    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.8vw, 1.4rem); font-style: italic; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em; margin-top: 0.6rem; overflow-wrap: break-word; word-wrap: break-word;">Crafted to Measure. Tailored for Distinction.</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5.5vw, 3.8rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; margin-top: 0.4rem; display: block; visibility: visible; opacity: 1;">The Shirt Project</div>
+    <div style="font-family: 'Montserrat', sans-serif; font-size: clamp(0.7rem, 2vw, 0.88rem); font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.7rem; display: block; visibility: visible; opacity: 1;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.8vw, 1.4rem); font-style: italic; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em; margin-top: 0.6rem; display: block; visibility: visible; opacity: 1;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
 
@@ -775,21 +793,21 @@ with tab_atelier:
     </div>
     """, unsafe_allow_html=True)
 
-    # Preset Quick Questions
-    g_col1, g_col2, g_col3, g_col4 = st.columns(4)
+    # Preset Quick Questions in 2 Wide Columns (prevents vertical letter wrapping)
+    g_col1, g_col2 = st.columns(2)
     genie_query = ""
+
     with g_col1:
-        if st.button("🌿 Summer Shirt Fabrics"):
-            genie_query = "Best summer shirt fabric?"
+        if st.button("🌿 Summer Shirting Fabrics", key="g_btn1"):
+            genie_query = "Summer Shirting Fabrics"
+        if st.button("⏱️ Bespoke Stitching Timeline", key="g_btn3"):
+            genie_query = "Bespoke Stitching Timeline"
+
     with g_col2:
-        if st.button("🎩 Wedding & Gala Suits"):
-            genie_query = "Best outfit for wedding gala?"
-    with g_col3:
-        if st.button("⏱️ Bespoke Stitching Time"):
-            genie_query = "How long does bespoke stitching take?"
-    with g_col4:
-        if st.button("👑 Founder Consultation"):
-            genie_query = "Contact Mr. Jatin Gupta founder address"
+        if st.button("🎩 Wedding & Gala Suits", key="g_btn2"):
+            genie_query = "Wedding & Gala Suits"
+        if st.button("👑 Founder Consultation", key="g_btn4"):
+            genie_query = "Founder Consultation"
 
     user_genie_input = st.text_input("Or type your custom question here:", value=genie_query, placeholder="e.g. What fabric is best for summer business formal?", key="main_genie")
 
