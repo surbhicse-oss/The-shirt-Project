@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import urllib.parse
 from datetime import datetime
 import time
@@ -634,7 +635,7 @@ st.markdown("""
 # MAIN NAVIGATION TABS & AUTOMATIC REDIRECTION
 # ==========================================
 if st.session_state.get("switch_to_studio", False):
-    st.components.v1.html("""
+    components.html("""
     <script>
     setTimeout(function() {
         const mainTabs = window.parent.document.querySelectorAll('div.stTabs button[data-baseweb="tab"]');
