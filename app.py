@@ -95,7 +95,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     letter-spacing: 0.06em;
 }
 
-/* Custom Styled Sidebar with High Contrast Gold & White Rules */
+/* Custom Styled Sidebar with High Contrast Rules */
 [data-testid="stSidebar"],
 [data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
 [data-testid="stSidebar"] section {
@@ -110,8 +110,7 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 [data-testid="stSidebar"] a,
 [data-testid="stSidebar"] li,
 [data-testid="stSidebar"] label,
-[data-testid="stSidebar"] summary,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] * {
+[data-testid="stSidebar"] summary {
     color: #FFFFFF !important;
     fill: #FFFFFF !important;
     -webkit-text-fill-color: #FFFFFF !important;
@@ -134,89 +133,69 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     visibility: visible !important;
 }
 
-[data-testid="stSidebar"] [data-baseweb="select"] div,
-[data-testid="stSidebar"] [data-baseweb="select"] span {
+/* Selectbox Input Box & Popover Dropdown Menu Styling - Dark Emerald & Gold */
+[data-baseweb="select"] > div,
+div[data-baseweb="select"] *,
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div {
+    background-color: #0D2E24 !important;
     color: #C5A059 !important;
     -webkit-text-fill-color: #C5A059 !important;
-    background-color: #24282D !important;
+    border-color: #C5A059 !important;
+    font-weight: 700 !important;
 }
 
-.sidebar-brand-box {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-    margin-bottom: 1.5rem;
+[data-baseweb="popover"],
+[data-baseweb="menu"],
+ul[role="listbox"],
+li[role="option"] {
+    background-color: #0D2E24 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
 }
 
-/* Luxury Header Banner */
-.brand-header-banner {
-    background: linear-gradient(135deg, #1A1D20 0%, #282C32 100%);
-    border-bottom: 3px solid #C5A059;
-    padding: 2.8rem 2rem;
-    border-radius: 14px;
-    text-align: center;
-    color: #EAE6DF;
-    margin-bottom: 2rem;
-    box-shadow: 0 15px 40px rgba(26, 29, 32, 0.22);
-    position: relative;
-    overflow: hidden;
+li[role="option"] *,
+div[role="option"] * {
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    font-weight: 600 !important;
 }
 
-.brand-header-banner::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%; width: 200%; height: 200%;
-    background: radial-gradient(circle at center, rgba(197, 160, 89, 0.12) 0%, transparent 60%);
-    pointer-events: none;
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"],
+div[role="option"]:hover {
+    background-color: #C5A059 !important;
+    color: #0D2E24 !important;
+    -webkit-text-fill-color: #0D2E24 !important;
 }
 
-.brand-logo-svg {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 0.5rem;
+li[role="option"]:hover *,
+li[role="option"][aria-selected="true"] * {
+    color: #0D2E24 !important;
+    -webkit-text-fill-color: #0D2E24 !important;
+    font-weight: 800 !important;
 }
 
-.brand-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3.8rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin: 0;
-    line-height: 1;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.4);
-}
-
-.brand-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.45rem;
-    font-style: italic;
-    letter-spacing: 0.16em;
-    color: #C5A059;
-    margin-top: 0.6rem;
-}
-
-/* Deep Slate & Metallic Gold Luxury Tabs Navigation */
+/* Main Navigation Tabs - Dark Emerald & Gold */
 .stTabs [data-baseweb="tab-list"] {
     gap: 1rem;
     justify-content: center;
-    background-color: #1A1D20 !important;
+    background-color: #0D2E24 !important;
     padding: 0.8rem 1.2rem;
     border-radius: 12px;
     border: 1.5px solid #C5A059;
     margin-bottom: 2.2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 .stTabs [data-baseweb="tab"] {
     height: 3.5rem;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.35rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.08em;
-    color: #FFFFFF !important;
-    -webkit-text-fill-color: #FFFFFF !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     background-color: transparent;
     border-radius: 8px;
     padding: 0 1.8rem;
@@ -224,18 +203,17 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 }
 
 .stTabs [data-baseweb="tab"]:hover {
-    background-color: rgba(197, 160, 89, 0.15) !important;
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
+    background-color: rgba(197, 160, 89, 0.2) !important;
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
 }
 
 .stTabs [aria-selected="true"] {
     background-color: #C5A059 !important;
-    color: #1A1D20 !important;
-    -webkit-text-fill-color: #1A1D20 !important;
-    font-weight: 700 !important;
-    box-shadow: 0 6px 22px rgba(197, 160, 89, 0.45) !important;
-    border: 1px solid #FFFFFF !important;
+    color: #0D2E24 !important;
+    -webkit-text-fill-color: #0D2E24 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 6px 22px rgba(197, 160, 89, 0.4) !important;
 }
 
 /* Cards & Elevated Glass Elements */
