@@ -748,8 +748,8 @@ def query_sartorial_genie(prompt):
         return "🎩 **Gala & Wedding Recommendation:**\nFor grand evening galas or weddings, opt for our **Classic Black Tie Tuxedo** with satin peak lapels or a **Custom Raw Silk Nehru Jacket** with hand-embroidered monogramming."
     elif any(w in prompt_lower for w in ["time", "duration", "days", "how long", "fitting", "stitch"]):
         return "⏱️ **Bespoke Timeline & Fitting Guide:**\nOur master tailors take 2 to 3 weeks for 30-point pattern drafting, hand-cutting, and pick-stitching. Urgent gala requests can be expedited in **7-Day Express Bespoke**."
-    elif any(w in prompt_lower for w in ["contact", "jatin", "founder", "address", "location", "jammu", "phone", "number"]):
-        return "👑 **Founder Concierge Info:**\nReach **Founder Mr. Jatin Gupta** directly at **+91 8717070570** or visit **264-A, Raj Tilak Road, Jammu**."
+    elif any(w in prompt_lower for w in ["contact", "team", "atelier", "address", "location", "jammu", "phone", "number"]):
+        return "👑 **Atelier Concierge Info:**\nReach **Our Team** directly at **+91 8717070570** or visit **264-A, Raj Tilak Road, Jammu**."
     else:
         return "👔 **Sartorial Genie Guidance:**\nEvery garment at *The Shirt Project* is 100% custom-crafted. Explore our **Sartorial Vault** catalog or use our **Bespoke Design Suite** live configurator to customize your collar, cuff, and contour fit!"
 
@@ -770,7 +770,7 @@ with st.sidebar:
             <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         </svg>
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; margin-top: 0.2rem; display: block;">The Shirt Project</div>
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem; display: block;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem; display: block;">CRAFTED &amp; TAILORED BY OUR TEAM</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -809,10 +809,10 @@ with st.sidebar:
 
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
-        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.5rem;">👑 Founder Atelier</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.5rem;">👑 Bespoke Atelier</span>
         <div style="font-size: 0.92rem; line-height: 1.6;">
-            <strong style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">Mr. Jatin Gupta</strong><br>
-            <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; font-style: italic;">Founder</span><br>
+            <strong style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">Our Team</strong><br>
+            <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; font-style: italic;">Master Artisans &amp; Stylists</span><br>
             <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
             <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">📞 +91 8717070570</span>
         </div>
@@ -846,7 +846,7 @@ st.markdown("""
         <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
     <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3.2rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">The Shirt Project</div>
-    <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.88rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.22em !important; text-transform: uppercase !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.88rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.22em !important; text-transform: uppercase !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">CRAFTED &amp; TAILORED BY OUR TEAM</div>
     <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 1.3rem !important; font-style: italic !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.08em !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">Crafted to Measure. Tailored for Distinction.</div>
 </div>
 """, unsafe_allow_html=True)
@@ -934,7 +934,7 @@ with tab_atelier:
             Where Master Craftsmanship Meets Modern Elegance
         </h2>
         <p style="font-size: 1.02rem; color: #555555; line-height: 1.85;">
-            Founded by <strong>Mr. Jatin Gupta</strong>, <strong>The Shirt Project</strong> rejects mass production in favor of individual sartorial excellence. 
+            Crafted by <strong>Our Team</strong> of master artisans, <strong>The Shirt Project</strong> rejects mass production in favor of individual sartorial excellence. 
             Every shirt, suit, and garment is drafted from a unique paper pattern created exclusively for your body measurements. 
             Combining royal Indian heritage with centuries-old Savile Row traditions, we deliver garments of unmatched precision, comfort, and timeless prestige.
         </p>
@@ -972,8 +972,8 @@ with tab_atelier:
         if st.button("⏱️ Bespoke Stitching Timeline", key="g_btn3"):
             genie_query = "Bespoke Stitching Timeline"
     with r2_col2:
-        if st.button("👑 Founder Consultation", key="g_btn4"):
-            genie_query = "Founder Consultation"
+        if st.button("👑 Team Consultation", key="g_btn4"):
+            genie_query = "Team Consultation"
 
     user_genie_input = st.text_input("Or type your custom question here:", value=genie_query, placeholder="e.g. What fabric is best for summer business formal?", key="main_genie")
 
@@ -1019,7 +1019,7 @@ with tab_atelier:
         <div class="pillar-card">
             <div class="pillar-icon">👑</div>
             <div class="pillar-title">Personal Style</div>
-            <div class="pillar-desc">Private 1-on-1 consultations with Founder Mr. Jatin Gupta for wedding galas, executive wardrobes, & casual luxury.</div>
+            <div class="pillar-desc">Private 1-on-1 consultations with Our Team for wedding galas, executive wardrobes, & casual luxury.</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -1266,7 +1266,7 @@ with tab_studio:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
         <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #1A1D20;">Bespoke Design & Interactive Studio</h2>
-        <p style="color: #666666; font-size: 0.98rem;">Configure your shirt cut preferences or submit custom stitching requests directly to Founder Mr. Jatin Gupta.</p>
+        <p style="color: #666666; font-size: 0.98rem;">Configure your shirt cut preferences or submit custom stitching requests directly to Our Team.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1352,7 +1352,7 @@ with tab_studio:
             "Upload Photo / Style Inspiration (PNG, JPG, JPEG)",
             type=["png", "jpg", "jpeg"],
             accept_multiple_files=True,
-            help="Upload images of suits, shirts, or collars you want Founder Mr. Jatin Gupta to replicate."
+            help="Upload images of suits, shirts, or collars you want Our Team to replicate."
         )
 
         submit_quote = st.button("✨ Request Bespoke Quote")
@@ -1361,17 +1361,17 @@ with tab_studio:
     with info_col:
         st.markdown("""
         <div class="pillar-card" style="text-align: left; padding: 2rem;">
-            <div style="color: #C5A059; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Direct Founder Concierge</div>
+            <div style="color: #C5A059; font-size: 1.8rem; margin-bottom: 0.5rem;">👑 Direct Atelier Concierge</div>
             <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #FFFFFF;">What Happens Next?</h4>
             <ol style="color: #D0D4D9; font-size: 0.9rem; line-height: 1.8; padding-left: 1.2rem;">
-                <li><strong>Founder Review:</strong> Founder Mr. Jatin Gupta personally reviews your fabric & fit preferences.</li>
+                <li><strong>Team Review:</strong> Our Team personally reviews your fabric & fit preferences.</li>
                 <li><strong>WhatsApp Swatches:</strong> Direct high-resolution digital fabric swatches & price estimates sent straight to your WhatsApp.</li>
                 <li><strong>Private Atelier Fitting:</strong> Visit our Jammu Heritage Atelier or schedule a private consultation.</li>
             </ol>
             <div style="border-top: 1px dashed #C5A059; margin-top: 1.5rem; padding-top: 1rem; color: #C5A059; font-size: 0.85rem;">
-                👑 <strong>Founder:</strong> Mr. Jatin Gupta<br>
+                👑 <strong>Bespoke Team:</strong> Our Team<br>
                 ⚡ <strong>Direct WhatsApp:</strong> +91 8717070570<br>
-                ✉️ <strong>VIP Booking:</strong> jatin.gupta@live.com
+                ✉️ <strong>VIP Booking:</strong> dummymail.com
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1403,7 +1403,7 @@ with tab_studio:
 ---------------------------------------
 Sent via The Shirt Project Web Studio
 """
-            # Encode for WhatsApp URL (using Founder Mr. Jatin Gupta's WhatsApp number +91 8717070570)
+            # Encode for WhatsApp URL (using Our Team's WhatsApp number +91 8717070570)
             business_wa_number = "918717070570"
             encoded_text = urllib.parse.quote(wa_text)
             wa_link = f"https://wa.me/{business_wa_number}?text={encoded_text}"
@@ -1422,7 +1422,7 @@ Sent via The Shirt Project Web Studio
                     <strong>Customization Details:</strong> {fabric_notes if fabric_notes else 'Default fit'}
                 </p>
                 <a href="{wa_link}" target="_blank" class="whatsapp-direct-btn">
-                    💬 Click Here to Send Direct WhatsApp Inquiry to Founder
+                    💬 Click Here to Send Direct WhatsApp Inquiry to Our Team
                 </a>
             </div>
             """, unsafe_allow_html=True)
@@ -1435,7 +1435,7 @@ with tab_contact:
     st.markdown("""
     <div style="text-align: center; margin-bottom: 2rem;">
         <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: #1A1D20;">The Royal Atelier & VIP Concierge</h2>
-        <p style="color: #666666; font-size: 0.98rem;">Book a private fitting appointment or reach Founder Mr. Jatin Gupta directly.</p>
+        <p style="color: #666666; font-size: 0.98rem;">Book a private fitting appointment or reach Our Team directly.</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -1449,14 +1449,14 @@ with tab_contact:
             </h3>
             <p style="font-size: 0.95rem; line-height: 1.85; color: #444444;">
                 <strong>The Shirt Project Atelier</strong><br>
-                👑 <strong>Founder:</strong> Mr. Jatin Gupta<br>
+                👑 <strong>Bespoke Team:</strong> Our Team<br>
                 📍 <strong>Address:</strong> 264-A, Raj Tilak Road, Jammu<br><br>
                 🕒 <strong>Atelier Hours:</strong><br>
                 Monday – Saturday: 10:00 AM – 8:00 PM<br>
                 Sunday: By Private VIP Appointment Only<br><br>
                 📞 <strong>Direct Contact No:</strong> +91 8717070570<br>
                 💬 <strong>WhatsApp Concierge:</strong> +91 8717070570<br>
-                ✉️ <strong>VIP Booking:</strong> jatin.gupta@live.com
+                ✉️ <strong>VIP Booking:</strong> dummymail.com
             </p>
         </div>
         """, unsafe_allow_html=True)
@@ -1467,7 +1467,7 @@ with tab_contact:
         app_name = st.text_input("Your Full Name", placeholder="e.g. Marcus Vance")
         app_date = st.date_input("Preferred Date", value=datetime.today())
         app_time = st.selectbox("Preferred Time Slot", ["10:30 AM", "12:00 PM", "02:30 PM", "04:30 PM", "06:30 PM"])
-        app_tailor = st.selectbox("Preferred Master Stylist / Fitter", ["Mr. Jatin Gupta (Founder)", "Senior Bespoke Stylist", "Master Fitter & Cutter"])
+        app_tailor = st.selectbox("Preferred Master Stylist / Fitter", ["Our Team (Senior Stylist)", "Master Fitter & Cutter", "Head Bespoke Artisan"])
 
         if st.button("📅 Confirm Fitting Reservation"):
             if app_name:
@@ -1492,6 +1492,6 @@ with tab_contact:
 # ==========================================
 st.markdown("""
 <div style="text-align: center; border-top: 1px solid #EAE6DF; margin-top: 4rem; padding-top: 2rem; color: #888888; font-size: 0.82rem; letter-spacing: 0.12em;">
-    © 2026 THE SHIRT PROJECT • FOUNDED BY MR. JATIN GUPTA • CRAFTED TO MEASURE. TAILORED FOR DISTINCTION.
+    © 2026 THE SHIRT PROJECT • CRAFTED BY OUR TEAM • TAILORED FOR DISTINCTION.
 </div>
 """, unsafe_allow_html=True)
