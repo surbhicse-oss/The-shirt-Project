@@ -92,13 +92,17 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     border-right: 2px solid #C5A059 !important;
 }
 
+[data-testid="stSidebar"] *,
 [data-testid="stSidebar"] .stMarkdown,
 [data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+[data-testid="stSidebar"] [data-testid="element-container"],
+[data-testid="stSidebar"] .element-container,
 [data-testid="stSidebar"] div,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] label {
     background-color: transparent !important;
+    background: transparent !important;
     color: #FFFFFF !important;
 }
 
@@ -108,9 +112,10 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 [data-testid="stSidebar"] h4 {
     color: #C5A059 !important;
     background-color: transparent !important;
+    background: transparent !important;
     font-family: 'Cormorant Garamond', serif !important;
     letter-spacing: 0.08em !important;
-    font-size: 1.35rem !important;
+    font-size: 1.4rem !important;
 }
 
 [data-testid="stSidebar"] .stRadio label p {
@@ -496,32 +501,38 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("### 👑 Founder Atelier")
     st.markdown("""
-    **Mr. Jatin Gupta**  
-    *Founder & Master Couturier*  
-    📍 *264-A, Raj Tilak Road, Jammu*  
-    📞 *+91 8717070570*
-    """)
-    st.markdown("<hr style='border-color: rgba(197,160,89,0.3);'>", unsafe_allow_html=True)
+    <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1rem;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.5rem;">👑 Founder Atelier</div>
+        <div style="font-size: 0.92rem; color: #FFFFFF !important; line-height: 1.6;">
+            <strong>Mr. Jatin Gupta</strong><br>
+            <span style="color: #C5A059 !important; font-style: italic;">Founder & Master Couturier</span><br>
+            📍 264-A, Raj Tilak Road, Jammu<br>
+            📞 +91 8717070570
+        </div>
+    </div>
+    <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem; margin-bottom: 0.5rem;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.4rem;">✂️ Lookbook Navigation</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    st.markdown("### ✂️ Quick Category Switcher")
     sb_category = st.radio(
-        "Explore Lookbook Collection:",
+        "Select Category:",
         ["Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements (Nehru Jackets / Monogramming)"],
         index=0
     )
     if sb_category:
         st.session_state.selected_categories = [sb_category.split(" (")[0]]
 
-    st.markdown("<hr style='border-color: rgba(197,160,89,0.3);'>", unsafe_allow_html=True)
-    st.markdown("### 💬 Direct WhatsApp Concierge")
-    st.markdown("Need instant fabric guidance or custom pricing?")
-    wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello Mr. Jatin Gupta, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
+    wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
     st.markdown(f"""
-    <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white; padding:0.6rem 1rem; border-radius:5px; font-weight:700; text-decoration:none; font-size:0.85rem;">
-        💬 Chat With Founder on WhatsApp
-    </a>
+    <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</div>
+        <div style="font-size: 0.88rem; color: #EAE6DF !important; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</div>
+        <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white !important; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.9rem; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
+            💬 Chat With Us on WhatsApp
+        </a>
+    </div>
     """, unsafe_allow_html=True)
 
 # ==========================================
