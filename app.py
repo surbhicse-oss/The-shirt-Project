@@ -274,17 +274,28 @@ div[data-baseweb="toast"],
     font-size: 1.1rem !important;
 }
 
-/* Custom Styled Sidebar with Bright Metallic Gold Text Rules */
+/* Custom Styled Sidebar with Permanent Visibility & Metallic Gold Text Rules */
 [data-testid="stSidebar"],
-[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
-[data-testid="stSidebar"] section {
+section[data-testid="stSidebar"] {
     --text-color: #C5A059 !important;
     --primary-color: #C5A059 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-width: 320px !important;
+    width: 320px !important;
     background-color: #1A1D20 !important;
     background: #1A1D20 !important;
-    border-right: 2px solid #C5A059 !important;
+    border-right: 2.5px solid #C5A059 !important;
     color: #C5A059 !important;
     -webkit-text-fill-color: #C5A059 !important;
+    transform: none !important;
+}
+
+[data-testid="stSidebar"] div[data-testid="stSidebarUserContent"],
+[data-testid="stSidebar"] section {
+    background-color: #1A1D20 !important;
+    background: #1A1D20 !important;
 }
 
 [data-testid="stSidebar"] *,
