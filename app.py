@@ -186,23 +186,28 @@ header *,
     -webkit-text-fill-color: #C5A059 !important;
 }
 
-/* Sidebar Toggle Buttons (High Visibility Gold Arrow Icon & Dark Button) */
+/* Sidebar Toggle Buttons (Glowing Gold Button with High Contrast Dark Arrow) */
 [data-testid="collapsedControl"],
 [data-testid="stSidebarCollapseButton"],
 button[data-testid="baseButton-header"],
 button[data-testid="stSidebarCollapseButton"],
 [data-testid="stHeader"] button,
 button[aria-label*="sidebar"],
-button[aria-label*="Sidebar"] {
-    background-color: #1A1D20 !important;
-    background: #1A1D20 !important;
-    border: 1.5px solid #C5A059 !important;
-    border-radius: 6px !important;
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.5) !important;
+button[aria-label*="Sidebar"],
+header [data-testid="stHeaderNav"] {
+    background-color: #C5A059 !important;
+    background: linear-gradient(135deg, #C5A059 0%, #E5C158 100%) !important;
+    border: 2px solid #FFFFFF !important;
+    border-radius: 8px !important;
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.95), 0 4px 15px rgba(0,0,0,0.6) !important;
     visibility: visible !important;
     opacity: 1 !important;
+    transform: scale(1.18) !important;
+    margin: 0.5rem !important;
+    z-index: 999999 !important;
+    transition: all 0.3s ease !important;
 }
 
 [data-testid="collapsedControl"] *,
@@ -210,10 +215,18 @@ button[aria-label*="Sidebar"] {
 [data-testid="stHeader"] button *,
 button[aria-label*="sidebar"] *,
 button[aria-label*="Sidebar"] * {
-    color: #C5A059 !important;
-    fill: #C5A059 !important;
-    stroke: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
+    color: #1A1D20 !important;
+    fill: #1A1D20 !important;
+    stroke: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    font-weight: 900 !important;
+}
+
+[data-testid="collapsedControl"]:hover,
+[data-testid="stSidebarCollapseButton"]:hover {
+    background: #FFFFFF !important;
+    transform: scale(1.28) !important;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1) !important;
 }
 
 .brand-header-banner-black,
