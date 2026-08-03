@@ -83,16 +83,93 @@ p, div, h1, h2, h3, h4, h5, h6, span, label, a {
     max-width: 100% !important;
 }
 
-/* Typography Overrides */
+/* Typography & Light Page High Contrast Rules */
 html, body, [class*="css"], .stMarkdown {
     font-family: 'Montserrat', sans-serif;
-    color: #1A1D20;
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
     background-color: #F7F5F0;
 }
 
 h1, h2, h3, h4, h5, h6, .brand-font {
     font-family: 'Cormorant Garamond', serif !important;
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
     letter-spacing: 0.06em;
+}
+
+/* Form Input Labels & Descriptions on Light Backgrounds */
+label, label p, label span, .stTextInput label p, .stSelectbox label p {
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    font-weight: 700 !important;
+    font-size: 0.98rem !important;
+}
+
+/* Metric Display Styling - Golden Brown Labels & Dark Slate Values */
+[data-testid="stMetricLabel"], 
+[data-testid="stMetricLabel"] p,
+[data-testid="stMetricLabel"] span {
+    color: #8A6D3B !important;
+    -webkit-text-fill-color: #8A6D3B !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+}
+
+[data-testid="stMetricValue"], 
+[data-testid="stMetricValue"] div,
+[data-testid="stMetricValue"] span {
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    font-size: 2.3rem !important;
+    font-weight: 800 !important;
+}
+
+/* Selectbox Input Box & Popover Dropdown Menu Styling - Dark Slate & Gold */
+[data-baseweb="select"] > div,
+div[data-baseweb="select"] *,
+div[data-baseweb="select"] span,
+div[data-baseweb="select"] div {
+    background-color: #1A1D20 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    border-color: #C5A059 !important;
+    font-weight: 700 !important;
+}
+
+[data-baseweb="popover"],
+[data-baseweb="popover"] *,
+[data-baseweb="menu"],
+[data-baseweb="menu"] *,
+ul[role="listbox"],
+ul[role="listbox"] *,
+li[role="option"] {
+    background-color: #1A1D20 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+}
+
+li[role="option"] *,
+div[role="option"] * {
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    font-weight: 600 !important;
+}
+
+li[role="option"]:hover,
+li[role="option"][aria-selected="true"],
+div[role="option"]:hover {
+    background-color: #C5A059 !important;
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+}
+
+li[role="option"]:hover *,
+li[role="option"][aria-selected="true"] * {
+    color: #1A1D20 !important;
+    -webkit-text-fill-color: #1A1D20 !important;
+    font-weight: 800 !important;
 }
 
 /* Custom Styled Sidebar with High Contrast Rules */
@@ -131,49 +208,6 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     font-weight: 700 !important;
     opacity: 1 !important;
     visibility: visible !important;
-}
-
-/* Selectbox Input Box & Popover Dropdown Menu Styling - Dark Emerald & Gold */
-[data-baseweb="select"] > div,
-div[data-baseweb="select"] *,
-div[data-baseweb="select"] span,
-div[data-baseweb="select"] div {
-    background-color: #0D2E24 !important;
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-    border-color: #C5A059 !important;
-    font-weight: 700 !important;
-}
-
-[data-baseweb="popover"],
-[data-baseweb="menu"],
-ul[role="listbox"],
-li[role="option"] {
-    background-color: #0D2E24 !important;
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-}
-
-li[role="option"] *,
-div[role="option"] * {
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-    font-weight: 600 !important;
-}
-
-li[role="option"]:hover,
-li[role="option"][aria-selected="true"],
-div[role="option"]:hover {
-    background-color: #C5A059 !important;
-    color: #0D2E24 !important;
-    -webkit-text-fill-color: #0D2E24 !important;
-}
-
-li[role="option"]:hover *,
-li[role="option"][aria-selected="true"] * {
-    color: #0D2E24 !important;
-    -webkit-text-fill-color: #0D2E24 !important;
-    font-weight: 800 !important;
 }
 
 /* Main Navigation Tabs - Dark Emerald & Gold */
