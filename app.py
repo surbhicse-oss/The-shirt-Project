@@ -86,14 +86,36 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     letter-spacing: 0.06em;
 }
 
-/* Custom Styled Sidebar */
+/* Custom Styled Sidebar with High Contrast Rules */
 [data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #1A1D20 0%, #111315 100%) !important;
+    background: #1A1D20 !important;
     border-right: 2px solid #C5A059 !important;
 }
 
-[data-testid="stSidebar"] * {
-    color: #EAE6DF !important;
+[data-testid="stSidebar"] .stMarkdown,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] span,
+[data-testid="stSidebar"] label {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3, 
+[data-testid="stSidebar"] h4 {
+    color: #C5A059 !important;
+    background-color: transparent !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    letter-spacing: 0.08em !important;
+    font-size: 1.35rem !important;
+}
+
+[data-testid="stSidebar"] .stRadio label p {
+    color: #FFFFFF !important;
+    font-size: 0.95rem !important;
 }
 
 .sidebar-brand-box {
@@ -101,28 +123,6 @@ h1, h2, h3, h4, h5, h6, .brand-font {
     padding: 1.5rem 1rem;
     border-bottom: 1px solid rgba(197, 160, 89, 0.3);
     margin-bottom: 1.5rem;
-}
-
-.sidebar-logo {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 0.4rem;
-}
-
-.sidebar-title {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: 1.8rem !important;
-    font-weight: 700 !important;
-    color: #FFFFFF !important;
-    letter-spacing: 0.15em !important;
-    margin: 0 !important;
-}
-
-.sidebar-tagline {
-    font-family: 'Cormorant Garamond', serif !important;
-    font-size: 0.95rem !important;
-    font-style: italic !important;
-    color: #C5A059 !important;
 }
 
 /* Luxury Header Banner */
@@ -480,19 +480,19 @@ st.markdown(custom_css, unsafe_allow_html=True)
 # ==========================================
 with st.sidebar:
     st.markdown("""
-    <div class="sidebar-brand-box" style="background: #EAE6DF; border-radius: 10px; padding: 1.2rem 0.8rem; margin-bottom: 1.5rem; border: 1px solid #C5A059;">
+    <div style="background: #1A1D20; border-radius: 12px; padding: 1.4rem 1rem; margin-bottom: 1.8rem; border: 1.5px solid #C5A059; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">
         <svg viewBox="0 0 300 180" width="160" height="96" xmlns="http://www.w3.org/2000/svg">
             <!-- Coat Hanger Hook -->
-            <path d="M 150 20 C 135 20 125 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round"/>
+            <path d="M 150 20 C 135 20 125 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
             <!-- Coat Hanger Outer Frame -->
-            <path d="M 150 80 L 50 125 C 40 130 40 143 50 147 L 105 147 M 150 80 L 250 125 C 260 130 260 143 250 147 L 195 147" fill="none" stroke="#1A1D20" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M 150 80 L 50 125 C 40 130 40 143 50 147 L 105 147 M 150 80 L 250 125 C 260 130 260 143 250 147 L 195 147" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- SP Monogram inside Hanger -->
-            <path d="M 132 120 C 115 110 115 130 138 137 C 152 142 142 160 125 155 C 112 151 108 143 108 143" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 152 117 C 175 117 178 137 152 143 L 152 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 138 113 L 162 113 M 150 113 L 150 160" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 132 120 C 115 110 115 130 138 137 C 152 142 142 160 125 155 C 112 151 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 117 C 175 117 178 137 152 143 L 152 160" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 113 L 162 113 M 150 113 L 150 160" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         </svg>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 700; color: #1A1D20; letter-spacing: 0.1em; margin-top: 0.2rem;">The Shirt Project</div>
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; color: #8A6D3B; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.3rem;">Founded & Created by Jatin Gupta</div>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF !important; letter-spacing: 0.12em; margin-top: 0.3rem;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">Founded & Created by Jatin Gupta</div>
     </div>
     """, unsafe_allow_html=True)
 
