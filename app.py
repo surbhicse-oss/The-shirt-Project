@@ -692,7 +692,12 @@ with st.sidebar:
         key="sidebar_collection_filter"
     )
     if sb_filter_choice != "All Collections":
-        st.session_state.selected_categories = [sb_filter_choice]
+        if st.session_state.get("last_sb_choice") != sb_filter_choice:
+            st.session_state.selected_categories = [sb_filter_choice]
+            st.session_state.switch_to_catalog = True
+            st.session_state.last_sb_choice = sb_filter_choice
+    else:
+        st.session_state.selected_categories = ["Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements"]
 
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
@@ -741,6 +746,19 @@ st.markdown("""
 # ==========================================
 # MAIN NAVIGATION TABS & AUTOMATIC REDIRECTION
 # ==========================================
+if st.session_state.get("switch_to_catalog", False):
+    components.html("""
+    <script>
+    setTimeout(function() {
+        const mainTabs = window.parent.document.querySelectorAll('div.stTabs button[data-baseweb="tab"]');
+        if (mainTabs && mainTabs.length >= 2) {
+            mainTabs[1].click();
+        }
+    }, 150);
+    </script>
+    """, height=1)
+    st.session_state.switch_to_catalog = False
+
 if st.session_state.get("switch_to_studio", False):
     components.html("""
     <script>
@@ -1326,8 +1344,7 @@ with tab_contact:
         """, unsafe_allow_html=True)
 
     with col_book:
-        st.markdown('<div class="brand-card">', unsafe_allow_html=True)
-        st.markdown("<h3 style='font-family: \"Cormorant Garamond\", serif; font-size: 1.8rem; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem;'>Schedule Private Fitting Session</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='font-family: \"Cormorant Garamond\", serif; font-size: 1.8rem; border-bottom: 2px solid #C5A059; padding-bottom: 0.5rem; color: #1A1D20; margin-top: 0;'>Schedule Private Fitting Session</h3>", unsafe_allow_html=True)
 
         app_name = st.text_input("Your Full Name", placeholder="e.g. Marcus Vance")
         app_date = st.date_input("Preferred Date", value=datetime.today())
@@ -1339,7 +1356,6 @@ with tab_contact:
                 st.success(f"Appointment reserved for {app_name} on {app_date.strftime('%B %d, %Y')} at {app_time} with {app_tailor}. Our concierge will contact you shortly!")
             else:
                 st.warning("Please provide your name to confirm the reservation.")
-        st.markdown('</div>', unsafe_allow_html=True)
 
     # FAQ Accordion Section
     st.markdown("<br><h3 style='text-align: center; font-family: \"Cormorant Garamond\", serif; font-size: 2.2rem;'>Frequently Asked Bespoke Questions</h3>", unsafe_allow_html=True)
