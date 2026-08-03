@@ -186,6 +186,36 @@ header *,
     -webkit-text-fill-color: #C5A059 !important;
 }
 
+/* Sidebar Toggle Buttons (High Visibility Gold Arrow Icon & Dark Button) */
+[data-testid="collapsedControl"],
+[data-testid="stSidebarCollapseButton"],
+button[data-testid="baseButton-header"],
+button[data-testid="stSidebarCollapseButton"],
+[data-testid="stHeader"] button,
+button[aria-label*="sidebar"],
+button[aria-label*="Sidebar"] {
+    background-color: #1A1D20 !important;
+    background: #1A1D20 !important;
+    border: 1.5px solid #C5A059 !important;
+    border-radius: 6px !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.5) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+[data-testid="collapsedControl"] *,
+[data-testid="stSidebarCollapseButton"] *,
+[data-testid="stHeader"] button *,
+button[aria-label*="sidebar"] *,
+button[aria-label*="Sidebar"] * {
+    color: #C5A059 !important;
+    fill: #C5A059 !important;
+    stroke: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+}
+
 .brand-header-banner-black,
 div.brand-header-banner-black,
 div[data-testid="stMarkdownContainer"] > div.brand-header-banner-black {
