@@ -564,25 +564,40 @@ textarea::placeholder {
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
-/* Configurator Preview Box */
-.configurator-preview,
-.configurator-preview * {
-    background: linear-gradient(145deg, #1A1D20 0%, #292D33 100%) !important;
-    border: 1px solid #C5A059;
-    border-radius: 10px;
-    padding: 1.5rem;
-    color: #C5A059 !important;
-    -webkit-text-fill-color: #C5A059 !important;
-    text-align: center;
-    margin-bottom: 1.5rem;
+/* Configurator Preview Box - Sleek Single Luxury Card */
+.configurator-preview {
+    background: #1A1D20 !important;
+    border: 1.5px solid #C5A059 !important;
+    border-radius: 12px !important;
+    padding: 1.8rem 1.5rem !important;
+    text-align: center !important;
+    margin-bottom: 1.8rem !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+}
+
+.configurator-preview div,
+.configurator-preview span,
+.configurator-preview strong {
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .configurator-badge {
-    display: inline-block;
-    background: #C5A059;
-    color: #1A1D20;
-    font-weight: 700;
-    font-size: 0.75rem;
+    display: inline-block !important;
+    background: transparent !important;
+    border: 1px solid #C5A059 !important;
+    color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.18em !important;
+    text-transform: uppercase !important;
+    padding: 0.35rem 1.2rem !important;
+    border-radius: 50px !important;
+    margin-bottom: 1rem !important;
+}
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     text-transform: uppercase;
@@ -1123,11 +1138,11 @@ with tab_studio:
     st.markdown(f"""
     <div class="configurator-preview">
         <span class="configurator-badge">✨ Live Bespoke Silhouette Blueprint</span>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #FFFFFF; margin-bottom: 0.4rem;">
-            {st.session_state.config_fit} • {st.session_state.config_collar} Collar • {st.session_state.config_cuff}
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; margin-bottom: 0.6rem; line-height: 1.3;">
+            {st.session_state.config_fit} &bull; {st.session_state.config_collar} Collar &bull; {st.session_state.config_cuff}
         </div>
-        <div style="font-size: 0.85rem; color: #C5A059;">
-            Monogram Detail: <strong>{config_monogram}</strong> | Estimated Handcraft Time: <strong>18-24 Precision Hours</strong>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; border-top: 1px dashed rgba(197, 160, 89, 0.35) !important; padding-top: 0.8rem; margin-top: 0.8rem;">
+            Monogram Detail: <strong style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">{config_monogram}</strong> &nbsp;|&nbsp; Estimated Handcraft Time: <strong style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important;">18-24 Precision Hours</strong>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -1195,7 +1210,7 @@ with tab_studio:
             <div style="border-top: 1px dashed #C5A059; margin-top: 1.5rem; padding-top: 1rem; color: #C5A059; font-size: 0.85rem;">
                 👑 <strong>Founder:</strong> Mr. Jatin Gupta<br>
                 ⚡ <strong>Direct WhatsApp:</strong> +91 8717070570<br>
-                ✉️ <strong>VIP Booking:</strong> concierge@theshirtproject.com
+                ✉️ <strong>VIP Booking:</strong> jatin.gupta@live.com
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -1280,7 +1295,7 @@ with tab_contact:
                 Sunday: By Private VIP Appointment Only<br><br>
                 📞 <strong>Direct Contact No:</strong> +91 8717070570<br>
                 💬 <strong>WhatsApp Concierge:</strong> +91 8717070570<br>
-                ✉️ <strong>VIP Booking:</strong> concierge@theshirtproject.com
+                ✉️ <strong>VIP Booking:</strong> jatin.gupta@live.com
             </p>
         </div>
         """, unsafe_allow_html=True)
