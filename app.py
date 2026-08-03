@@ -457,7 +457,7 @@ div[data-baseweb="toast"],
     margin-bottom: 1.2rem;
 }
 
-/* Custom Buttons Styling - Clean Single Outer Gold Border */
+/* Custom Buttons Styling - Clean Single Outer Gold Border & Perfect Equal Alignment */
 .stButton > button {
     background-color: #1A1D20 !important;
     background: #1A1D20 !important;
@@ -477,6 +477,11 @@ div[data-baseweb="toast"],
     word-break: keep-all !important;
     line-height: 1.35 !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 3.8rem !important;
+    text-align: center !important;
 }
 
 .stButton > button *,
@@ -813,19 +818,24 @@ with tab_atelier:
     </div>
     """, unsafe_allow_html=True)
 
-    # Preset Quick Questions in 2 Wide Columns (prevents vertical letter wrapping)
-    g_col1, g_col2 = st.columns(2)
+    # Preset Quick Questions (2 clean aligned rows)
     genie_query = ""
 
-    with g_col1:
+    r1_col1, r1_col2 = st.columns(2)
+    with r1_col1:
         if st.button("🌿 Summer Shirting Fabrics", key="g_btn1"):
             genie_query = "Summer Shirting Fabrics"
-        if st.button("⏱️ Bespoke Stitching Timeline", key="g_btn3"):
-            genie_query = "Bespoke Stitching Timeline"
-
-    with g_col2:
+    with r1_col2:
         if st.button("🎩 Wedding & Gala Suits", key="g_btn2"):
             genie_query = "Wedding & Gala Suits"
+
+    st.markdown("<div style='margin-top: 0.8rem;'></div>", unsafe_allow_html=True)
+
+    r2_col1, r2_col2 = st.columns(2)
+    with r2_col1:
+        if st.button("⏱️ Bespoke Stitching Timeline", key="g_btn3"):
+            genie_query = "Bespoke Stitching Timeline"
+    with r2_col2:
         if st.button("👑 Founder Consultation", key="g_btn4"):
             genie_query = "Founder Consultation"
 
