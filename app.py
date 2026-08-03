@@ -706,18 +706,14 @@ with st.sidebar:
     st.markdown("""
     <div style="background: #1A1D20; border-radius: 12px; padding: 1.5rem 1rem; margin-bottom: 1.5rem; border: 1.5px solid #C5A059; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.35);">
         <svg viewBox="0 0 300 170" width="160" height="90" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.3rem;">
-            <!-- Filled Golden Hook -->
-            <path d="M 144 20 C 128 20 120 38 136 55 C 143 63 147 69 148 78 L 153 78 C 152 68 147 61 141 53 C 129 39 133 26 144 26 C 149 26 153 28 155 32 L 159 28 C 156 23 151 20 144 20 Z" fill="#C5A059"/>
-            <!-- Filled Golden Hanger Arms -->
-            <path d="M 148 78 L 40 122 C 30 126 30 142 42 147 L 112 147 L 150 78 Z" fill="#C5A059"/>
-            <path d="M 152 78 L 260 122 C 270 126 270 142 258 147 L 188 147 L 150 78 Z" fill="#C5A059"/>
-            <!-- Golden Outer Frame -->
+            <!-- Golden Coat Hanger Hook -->
             <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 82" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
+            <!-- Golden Outer Hanger Frame -->
             <path d="M 150 82 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 82 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
             <!-- Golden Monogram TSP -->
-            <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
         </svg>
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.12em; margin-top: 0.2rem; display: block;">The Shirt Project</div>
         <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem; display: block;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
@@ -785,19 +781,15 @@ with st.sidebar:
 # ==========================================
 st.markdown("""
 <div class="brand-header-banner-black">
-    <svg viewBox="0 0 300 170" width="210" height="118" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.6rem; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 4px 14px rgba(197, 160, 89, 0.4));">
-        <!-- Filled Golden Hook -->
-        <path d="M 144 20 C 128 20 120 38 136 55 C 143 63 147 69 148 78 L 153 78 C 152 68 147 61 141 53 C 129 39 133 26 144 26 C 149 26 153 28 155 32 L 159 28 C 156 23 151 20 144 20 Z" fill="#C5A059"/>
-        <!-- Filled Golden Hanger Arms -->
-        <path d="M 148 78 L 40 122 C 30 126 30 142 42 147 L 112 147 L 150 78 Z" fill="#C5A059"/>
-        <path d="M 152 78 L 260 122 C 270 126 270 142 258 147 L 188 147 L 150 78 Z" fill="#C5A059"/>
-        <!-- Golden Outer Frame -->
+    <svg viewBox="0 0 300 170" width="200" height="113" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.6rem; display: block; margin-left: auto; margin-right: auto; filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.35));">
+        <!-- Golden Coat Hanger Hook -->
         <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 82" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
+        <!-- Golden Outer Hanger Frame -->
         <path d="M 150 82 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 82 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
         <!-- Golden Monogram TSP -->
-        <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-        <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
-        <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#1A1D20" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
     </svg>
     <div style="font-family: 'Cormorant Garamond', serif !important; font-size: 3.2rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; margin-top: 0.4rem !important; line-height: 1.2 !important; display: block !important; visibility: visible !important; opacity: 1 !important;">The Shirt Project</div>
     <div style="font-family: 'Montserrat', sans-serif !important; font-size: 0.88rem !important; font-weight: 700 !important; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.22em !important; text-transform: uppercase !important; margin-top: 0.6rem !important; display: block !important; visibility: visible !important; opacity: 1 !important;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
