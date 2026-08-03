@@ -96,47 +96,56 @@ h1, h2, h3, h4, h5, h6, .brand-font {
 }
 
 /* Custom Styled Sidebar with High Contrast Gold & White Rules */
-[data-testid="stSidebar"] {
+[data-testid="stSidebar"],
+[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] section {
     background-color: #1A1D20 !important;
     background: #1A1D20 !important;
     border-right: 2px solid #C5A059 !important;
 }
 
 [data-testid="stSidebar"] *,
-[data-testid="stSidebar"] .stMarkdown,
-[data-testid="stSidebar"] [data-testid="stMarkdownContainer"],
-[data-testid="stSidebar"] [data-testid="element-container"],
-[data-testid="stSidebar"] .element-container,
-[data-testid="stSidebar"] div,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] *,
+[data-testid="stSidebar"] .stMarkdown *,
+[data-testid="stSidebar"] summary *,
+[data-testid="stSidebar"] details *,
+[data-testid="stSidebar"] label *,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
-[data-testid="stSidebar"] label,
-[data-testid="stSidebar"] summary,
-[data-testid="stSidebar"] details {
+[data-testid="stSidebar"] div {
     color: #FFFFFF !important;
-    background-color: transparent !important;
-    background: transparent !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 [data-testid="stSidebar"] h1, 
 [data-testid="stSidebar"] h2, 
 [data-testid="stSidebar"] h3, 
 [data-testid="stSidebar"] h4,
+[data-testid="stSidebar"] h5,
 [data-testid="stSidebar"] summary span,
 [data-testid="stSidebar"] summary div,
+[data-testid="stSidebar"] summary,
 [data-testid="stSidebar"] label p,
-[data-testid="stSidebar"] .stSelectbox label {
+[data-testid="stSidebar"] label span,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] .stSelectbox label p,
+[data-testid="stSidebar"] .stSelectbox label span,
+[data-testid="stSidebar"] .gold-text {
     color: #C5A059 !important;
-    background-color: transparent !important;
-    background: transparent !important;
+    -webkit-text-fill-color: #C5A059 !important;
     font-family: 'Cormorant Garamond', serif !important;
-    letter-spacing: 0.08em !important;
     font-weight: 700 !important;
+    font-size: 1.15rem !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 [data-testid="stSidebar"] [data-baseweb="select"] div,
 [data-testid="stSidebar"] [data-baseweb="select"] span {
     color: #C5A059 !important;
+    -webkit-text-fill-color: #C5A059 !important;
     background-color: #24282D !important;
 }
 
@@ -515,20 +524,10 @@ def query_sartorial_genie(prompt):
 # SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
 # ==========================================
 with st.sidebar:
+    st.image("assets/brand_logo.png", use_container_width=True)
     st.markdown("""
-    <div style="background: #1A1D20; border-radius: 12px; padding: 1.4rem 1rem; margin-bottom: 1.5rem; border: 1.5px solid #C5A059; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.3);">
-        <svg viewBox="0 0 300 160" width="150" height="80" xmlns="http://www.w3.org/2000/svg">
-            <!-- Coat Hanger Hook -->
-            <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 80" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
-            <!-- Outer Hanger -->
-            <path d="M 150 80 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 80 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- Monogram SP -->
-            <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
-            <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
-        </svg>
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF !important; letter-spacing: 0.12em; margin-top: 0.3rem;">The Shirt Project</div>
-        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
+    <div style="text-align: center; margin-top: -8px; margin-bottom: 1.5rem;">
+        <span style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; display: block;">FOUNDED &amp; CREATED BY JATIN GUPTA</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -541,7 +540,7 @@ with st.sidebar:
     # Category Filter Choice Selector in Sidebar
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.4rem;">✂️ Filter Lookbook by Category</div>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.4rem;">✂️ Filter Lookbook by Category</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -555,12 +554,12 @@ with st.sidebar:
 
     st.markdown("""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.5rem;">👑 Founder Atelier</div>
-        <div style="font-size: 0.92rem; color: #FFFFFF !important; line-height: 1.6;">
-            <strong style="color: #FFFFFF !important;">Mr. Jatin Gupta</strong><br>
-            <span style="color: #C5A059 !important; font-style: italic;">Founder</span><br>
-            <span style="color: #FFFFFF !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
-            <span style="color: #FFFFFF !important;">📞 +91 8717070570</span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.5rem;">👑 Founder Atelier</span>
+        <div style="font-size: 0.92rem; line-height: 1.6;">
+            <strong style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">Mr. Jatin Gupta</strong><br>
+            <span style="color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; font-style: italic;">Founder</span><br>
+            <span style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">📍 264-A, Raj Tilak Road, Jammu</span><br>
+            <span style="color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important;">📞 +91 8717070570</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -568,9 +567,9 @@ with st.sidebar:
     wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
     st.markdown(f"""
     <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</div>
-        <div style="font-size: 0.88rem; color: #FFFFFF !important; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</div>
-        <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white !important; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.9rem; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; display: block; margin-bottom: 0.4rem;">💬 Direct WhatsApp Concierge</span>
+        <span style="font-size: 0.88rem; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; display: block; line-height: 1.5; margin-bottom: 0.8rem;">Need instant fabric guidance or custom pricing?</span>
+        <a href="{wa_direct_quick}" target="_blank" style="display:block; text-align:center; background:#25D366; color:white !important; -webkit-text-fill-color:white !important; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none !important; font-size:0.9rem; letter-spacing: 0.05em; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);">
             💬 Chat With Us on WhatsApp
         </a>
     </div>
