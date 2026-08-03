@@ -521,18 +521,7 @@ with st.sidebar:
             📞 +91 8717070570
         </div>
     </div>
-    <div style="border-top: 1px dashed rgba(197, 160, 89, 0.4); padding-top: 1rem; margin-top: 1.2rem; margin-bottom: 0.5rem;">
-        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: #C5A059 !important; margin-bottom: 0.4rem;">✂️ Lookbook Navigation</div>
-    </div>
     """, unsafe_allow_html=True)
-
-    sb_category = st.radio(
-        "Select Category:",
-        ["Shirting", "Suiting & Tuxedos", "Trousers & Bottoms", "Style Statements (Nehru Jackets / Monogramming)"],
-        index=0
-    )
-    if sb_category:
-        st.session_state.selected_categories = [sb_category.split(" (")[0]]
 
     wa_direct_quick = f"https://wa.me/918717070570?text={urllib.parse.quote('Hello, I would like to inquire about bespoke tailoring for The Shirt Project.')}"
     st.markdown(f"""
