@@ -525,10 +525,20 @@ def query_sartorial_genie(prompt):
 # SIDEBAR NAVIGATION & QUICK ACTIONS TOGGLE
 # ==========================================
 with st.sidebar:
-    st.image("assets/brand_logo.png", use_container_width=True)
     st.markdown("""
-    <div style="text-align: center; margin-top: -8px; margin-bottom: 1.5rem;">
-        <span style="font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; display: block;">FOUNDED &amp; CREATED BY JATIN GUPTA</span>
+    <div style="background: #1A1D20; border-radius: 12px; padding: 1.5rem 1rem; margin-bottom: 1.5rem; border: 1.5px solid #C5A059; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.35);">
+        <svg viewBox="0 0 300 170" width="160" height="90" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 0.3rem;">
+            <!-- Golden Coat Hanger Hook -->
+            <path d="M 150 18 C 132 18 122 35 138 55 C 145 65 148 71 150 82" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round"/>
+            <!-- Golden Outer Hanger Frame -->
+            <path d="M 150 82 L 45 125 C 32 130 32 145 45 150 L 105 150 M 150 82 L 255 125 C 268 130 268 145 255 150 L 195 150" fill="none" stroke="#C5A059" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Golden Monogram TSP -->
+            <path d="M 130 118 C 112 108 112 132 138 140 C 152 145 142 165 125 158 C 112 154 108 143 108 143" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 152 115 C 178 115 182 138 152 145 L 152 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+            <path d="M 138 110 L 162 110 M 150 110 L 150 165" fill="none" stroke="#C5A059" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+        <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 700; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF !important; letter-spacing: 0.12em; margin-top: 0.2rem;">The Shirt Project</div>
+        <div style="font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; color: #C5A059 !important; -webkit-text-fill-color: #C5A059 !important; letter-spacing: 0.18em; text-transform: uppercase; margin-top: 0.4rem;">FOUNDED &amp; CREATED BY JATIN GUPTA</div>
     </div>
     """, unsafe_allow_html=True)
 
